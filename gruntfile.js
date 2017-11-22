@@ -11,6 +11,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Tasks for SCSS
   grunt.loadNpmTasks('grunt-sass');
@@ -34,7 +35,14 @@ module.exports = function(grunt) {
     // Concatenated all the JS files into one
     concat: {
       js: {
-        src: ['app/client/javascripts.js'],
+        src: [
+          'app/client/javascripts/vendors/angular.js',
+          'app/client/javascripts/vendors/angulartics.js',
+          'app/client/javascripts/vendors/jquery.js',          
+          'app/client/javascripts/vendors/*.js',
+          'app/client/javascripts/app.js',
+          'app/client/javascripts/**/*.js',
+        ],
         dest: 'resources/main.js' // Use this file for local development
       }
     },
@@ -61,6 +69,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    // Minified the Annotated js code
+    uglify: {
+      js: {
+        src: ['resources/main.js'],
+        dest: 'resources/main.js'
+      }
+    },
     // Compile SASS
     sass: {
       options: {
@@ -76,6 +91,14 @@ module.exports = function(grunt) {
           './resources/main.css': './app/client/stylesheets/main.scss'
         }
       },
+      prod: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          './resources/main.css': './app/client/stylesheets/main.scss'
+        }
+      }
     },
     // Autoprefixer for CSS
     postcss: {
@@ -95,13 +118,25 @@ module.exports = function(grunt) {
           pretty: true
         },
         files: [{
-          cwd: 'app/client',
-          src: 'index.pug',
+          cwd: 'app/client/views',
+          src: '**/*.pug',
           dest: 'resources',
           expand: true,
           ext: '.html'
         }]
       },
+      prod: {
+        options: {
+          pretty: false
+        },
+        files: [{
+          cwd: './app/client/views',
+          src: '**/*.pug',
+          dest: './resources',
+          expand: true,
+          ext: '.html'
+        }]
+      }
     },
     watch: { // Grunt Watcher that executes tasks when certail file types change
       js: {
@@ -119,7 +154,7 @@ module.exports = function(grunt) {
         }
       },
       pug: {
-        files: ['app/client/index.pug'],
+        files: ['app/client/views/**/*.pug'],
         tasks: ['compilePUG'],
         options: {
           spawns: false
@@ -134,6 +169,37 @@ module.exports = function(grunt) {
           env: {
             PORT: 9000
           },
+          cwd: __dirname,
+          watch: ['app/server/**/*.js', 'app.js'],
+          callback: function (nodemon) {
+            // Not sure what this does
+            nodemon.on('log', function (event) {
+              console.log(event.colour);
+            });
+
+            // Fixes the Bunyan outputs
+            var bunyan;
+            nodemon.on('readable', function () {
+              bunyan = grunt.util.spawn({
+                cmd: './node_modules/bunyan/bin/bunyan',
+                args: ['--output', 'short', '--color']
+              }, function() {});
+
+              bunyan.stdout.pipe(process.stdout);
+              bunyan.stderr.pipe(process.stderr);
+
+              this.stdout.pipe(bunyan.stdin);
+              this.stderr.pipe(bunyan.stdin);
+            });
+
+            // Opens browser on initial server start
+            nodemon.on('config:update', function () {
+              // Delay before server listens on port
+              setTimeout(function() {
+                require('open')('http://localhost:9000');
+              }, 1000);
+            });
+          }
         }
       }
     },
@@ -153,16 +219,18 @@ module.exports = function(grunt) {
   /********** DEFAULT **********/
   /*****************************/
   // JS Tasks
+  grunt.registerTask('minifyJS', ['concat', 'ngAnnotate', 'babel', 'uglify']);
   grunt.registerTask('concatJS', ['concat', 'ngAnnotate', 'babel']);
 
   // SCSS Task
+  grunt.registerTask('minifySCSS',  ['sass:prod', 'postcss']);
   grunt.registerTask('compileSCSS', ['sass:dev', 'postcss']);
 
   // PUG Tasks
+  grunt.registerTask('minifyPUG',   ['pug:prod']);
   grunt.registerTask('compilePUG',  ['pug:dev']);
 
   // Grunt Tasks
+  grunt.registerTask('prod',  ['minifyJS', 'minifySCSS', 'minifyPUG']);
   grunt.registerTask('dev',   ['concurrent:compilation', 'concurrent:run']);
 };
-
-// TODO: remove dev
