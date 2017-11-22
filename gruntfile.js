@@ -35,14 +35,7 @@ module.exports = function(grunt) {
     // Concatenated all the JS files into one
     concat: {
       js: {
-        src: [
-          'app/client/javascripts/vendors/angular.js',
-          'app/client/javascripts/vendors/angulartics.js',
-          'app/client/javascripts/vendors/jquery.js',          
-          'app/client/javascripts/vendors/*.js',
-          'app/client/javascripts/app.js',
-          'app/client/javascripts/**/*.js',
-        ],
+        src: ['app/client/javascript.js'],
         dest: 'resources/main.js' // Use this file for local development
       }
     },
@@ -118,8 +111,8 @@ module.exports = function(grunt) {
           pretty: true
         },
         files: [{
-          cwd: 'app/client/views',
-          src: '**/*.pug',
+          cwd: 'app/client/',
+          src: 'index.pug',
           dest: 'resources',
           expand: true,
           ext: '.html'
@@ -130,8 +123,8 @@ module.exports = function(grunt) {
           pretty: false
         },
         files: [{
-          cwd: './app/client/views',
-          src: '**/*.pug',
+          cwd: './app/client/',
+          src: 'index.pug',
           dest: './resources',
           expand: true,
           ext: '.html'
@@ -140,7 +133,7 @@ module.exports = function(grunt) {
     },
     watch: { // Grunt Watcher that executes tasks when certail file types change
       js: {
-        files: ['app/client/javascripts/**/*.js'],
+        files: ['app/client/javascript.js'],
         tasks: ['concatJS'],
         options: {
           spawns: false
@@ -154,7 +147,7 @@ module.exports = function(grunt) {
         }
       },
       pug: {
-        files: ['app/client/views/**/*.pug'],
+        files: ['app/client/index.pug'],
         tasks: ['compilePUG'],
         options: {
           spawns: false
