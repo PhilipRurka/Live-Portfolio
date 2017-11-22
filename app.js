@@ -5,6 +5,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const router = require('express').Router();
 
 /************************************/
 /********** CONFIGURATIONS **********/
@@ -25,6 +26,22 @@ app.use(bodyParser.json());
 /********** STATICS ROUTES **********/
 /************************************/
 app.use(express.static(__dirname + '/resources'));
+
+/****************************/
+/********** ROUTES **********/
+/****************************/
+// Render the index files when no resources path matches
+router.get('/*', (req, res) => {
+  res.sendFile('resources/index.html', {
+    root: __dirname + '/../../../'
+  });
+});
+
+
+/*****************************/
+/********** EXPORTS **********/
+/*****************************/
+module.exports = router;
 
 
 /**********************************/
