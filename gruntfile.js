@@ -125,7 +125,7 @@ module.exports = function(grunt) {
         files: [{
           cwd: './app/client/',
           src: 'index.pug',
-          dest: './resources',
+          dest: './',
           expand: true,
           ext: '.html'
         }]
