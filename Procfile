@@ -1,0 +1,1 @@
+web: grunt prod && node app.js
