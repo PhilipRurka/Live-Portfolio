@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: ['app/client/javascript.js'],
-        dest: 'resources/main.js' // Use this file for local development
+        dest: 'main.js' // Use this file for local development
       }
     },
     // Add [] annotations to all the concatenated angular code
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       },
       app: {
         files: {
-          'resources/main.js': ['resources/main.js']
+          'main.js': ['main.js']
         }
       }
     },
@@ -58,15 +58,15 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'resources/main.js': 'resources/main.js'
+          'main.js': 'main.js'
         }
       }
     },
     // Minified the Annotated js code
     uglify: {
       js: {
-        src: ['resources/main.js'],
-        dest: 'resources/main.js'
+        src: ['main.js'],
+        dest: 'main.js'
       }
     },
     // Compile SASS
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          './resources/main.css': './app/client/stylesheets/main.scss'
+          './main.css': './app/client/stylesheets/main.scss'
         }
       },
       prod: {
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          './resources/main.css': './app/client/stylesheets/main.scss'
+          './main.css': './app/client/stylesheets/main.scss'
         }
       }
     },
@@ -101,14 +101,14 @@ module.exports = function(grunt) {
         ]
       },
       dist: { // Default env
-        src: 'resources/main.css'
+        src: 'main.css'
       }
     },
     // Compiles Pug
     pug: {
       dev: {
         options: {
-          pretty: true
+          pretty: false
         },
         files: [{
           cwd: 'app/client/',
