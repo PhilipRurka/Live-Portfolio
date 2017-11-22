@@ -1,0 +1,36 @@
+
+@mixin xxs {
+  @media (max-width: #{$media-query-xxs}) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: #{$media-query-xs}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: #{$media-query-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$media-query-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: #{$media-query-lg}) {
+    @content;
+  }
+}
+
+@mixin xlg {
+  @media (min-width: unquote("#{$media-query-lg} + 1px")) {
+    @content;
+  }
+}
