@@ -176,12 +176,12 @@
     }
   }
 
-  button {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    border-radius: 0;
-    text-transform: uppercase;
+  a {
+    display: inline-block;
     color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
     font-size: 0.75rem;
     padding: 0.25rem 0.8rem 0.2rem;
     margin-top: 2rem;
