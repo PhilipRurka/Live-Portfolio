@@ -4,16 +4,52 @@ html
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     base(href='/')
+    link(rel='shortcut icon', type='image/png' href='/images/favicon.png')
     link(rel='stylesheet', type='text/css', href='main.css')
     title Philip Rurka | Porfolio
 
   body
-    header
-
     .core
-      h1 Hello World Again!
-      
+      .contact.clearfix
+        .image-wrapper
+          a.image.github(href='https://github.com/PhilipRurka', target='_blank')
+          a.image.linkedin(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
+        p 
+          | hey@
+          strong philiprurka.com
+      .section-wrapper.first
+        .section-container
+          .section-content
+            label Philip Rurka
+            hr
+            p Passionate Front-End Developer With A Keen Focus For Structure, Semantic Code and Cohesive Design.
+            .contact.clearfix
+              .image-wrapper
+                a.image.github(href='https://github.com/PhilipRurka', target='_blank')
+                a.image.linkedin(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
+              p 
+                | hey@
+                strong philiprurka.com
+      .section-wrapper.bluekiwi
+        .section-container
+          .section-content.break
+            label Blue Kiwi
+            hr
+            p This is a project I have been working on with a wonderful team of rockstars. Check it out and let us know what you think.
+            button(href='http://www.iotplace.store/') Check it
+          .image-wrapper
+            .image
+          .button-wrapper
+            button(href='http://www.iotplace.store/') Check it
     footer
-
+      .footer-wrapper
+        p Say Hey!
+        a
+          | hey@
+          strong philiprurka.com
+        .image-wrapper
+          a.image.github(href='https://github.com/PhilipRurka', target='_blank')
+          a.image.linkedin(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
+        
     //- Javascript
     script(src='main.js')

@@ -1,0 +1,31 @@
+
+<div class="view-wrapper product-list">
+  <div class="section-wrapper">
+    <h2>Hot and fresh</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="product col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="product in products | limitTo:12" on-finish-render="ngRepeatFinished">
+          <div class="crawling-div"><a ng-href="http://www.iotplace.store/products/{{product.fields.slug}}"></a></div><a class="product-content" ng-click="goToProduct(product.fields.slug)">
+            <div class="product-image-container"><img ng-src="{{::product.fields.thumbnail.fields.file.url}}" alt="{{::product.fields.images[0].fields.title}}"/></div>
+            <div class="product-details">
+              <h1 class="product-name">{{::product.fields.name}}</h1>
+              <div class="product-category">{{::product.fields.shortDescriptor}} – ${{::product.fields.price}}</div>
+            </div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="view-wrapper discover-wrapper">
+  <div class="section-wrapper">
+    <h2>Discover</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="product col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="category in categoriesSlugHash" on-finish-render="ngRepeatFinished">
+          <div class="crawling-div"><a ng-href="http://www.iotplace.store/discover/{{category.categorySlug}}"></a></div><a class="product-content" ng-click="goToCategory(category)" style="background-image:url({{::category.image.fields.file.url}});">
+            <h2 class="discovery-title">{{::category.type}}</h2></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

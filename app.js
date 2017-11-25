@@ -25,14 +25,14 @@ app.use(bodyParser.json());
 /************************************/
 /********** STATICS ROUTES **********/
 /************************************/
-app.use(express.static(__dirname + '/resources'));
+app.use(express.static(__dirname));
 
 /****************************/
 /********** ROUTES **********/
 /****************************/
 // Render the index files when no resources path matches
 router.get('/*', (req, res) => {
-  res.sendFile('resources/index.html', {
+  res.sendFile('index.html', {
     root: __dirname + '/../../../'
   });
 });

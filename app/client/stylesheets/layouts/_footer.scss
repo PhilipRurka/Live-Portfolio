@@ -1,0 +1,49 @@
+footer {
+  height: 18.75rem;
+  position: relative;
+
+  .footer-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: table;
+    margin: auto;
+    text-align: center;
+  }
+
+  a {
+    display: table;
+    margin: 2rem auto;
+    color: #ff5b5c;
+
+    + a {
+      margin: auto;
+    }
+  }
+
+  .image-wrapper {
+    border-radius: 50%;
+
+    a {
+      display: inline-block;
+      margin: auto;
+
+      + a {
+        margin-left: 1rem;
+      }
+    }
+    
+    .github {
+      height: 2rem;
+      width: 2rem;
+      background-image: url('/images/github-red.svg');
+    }
+
+    .linkedin {
+      height: 2rem;
+      width: 2rem;
+      background-image: url('/images/linkedin-red.svg');
+    }
+  }
+}
