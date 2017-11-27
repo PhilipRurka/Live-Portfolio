@@ -17,13 +17,20 @@
   }
 
   &.first {
+
     @media (max-width: 46.875rem) {
       height: 18.75rem!important;
     }
 
     label {
       position: relative;
-      padding-left: 2rem;
+      padding-left: 6rem;
+      font-size: 3.5rem!important;
+
+      @media (max-width: 46.875rem) {
+        font-size: 2rem!important;
+        padding-left: 4rem;
+      }
       
       &::before {
         content: '';
@@ -31,11 +38,16 @@
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        height: 1.5rem;
-        width: 1.3rem;
+        height: 5rem;
+        width: 4.3rem;
         background-image: url('/images/philip-rurka-logo.png');
         background-repeat: no-repeat;
         background-size: contain;
+
+        @media (max-width: 46.875rem) {
+          height: 3.5rem;
+          width: 3rem;
+        }
       }
     }
 
@@ -208,6 +220,10 @@
   
   .section-content > & {
     display: none;
+
+    a {
+      background-color: initial!important;
+    }
   }
   
   @media (max-width: 32.1875rem) {
@@ -275,5 +291,14 @@
     letter-spacing: 1px;
     padding: 0.4375rem 0;
     margin-right: 1rem;
+  }
+}
+
+.button-wrapper {
+  text-align: center;
+  a {
+    @media (max-width: 46.875rem) {
+      display: inline-block;
+    }
   }
 }

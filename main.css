@@ -486,7 +486,12 @@ table {
       height: 18.75rem !important; } }
   .section-wrapper.first label {
     position: relative;
-    padding-left: 2rem; }
+    padding-left: 6rem;
+    font-size: 3.5rem !important; }
+    @media (max-width: 46.875rem) {
+      .section-wrapper.first label {
+        font-size: 2rem !important;
+        padding-left: 4rem; } }
     .section-wrapper.first label::before {
       content: '';
       position: absolute;
@@ -494,11 +499,15 @@ table {
       left: 0;
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-      height: 1.5rem;
-      width: 1.3rem;
+      height: 5rem;
+      width: 4.3rem;
       background-image: url("/images/philip-rurka-logo.png");
       background-repeat: no-repeat;
       background-size: contain; }
+      @media (max-width: 46.875rem) {
+        .section-wrapper.first label::before {
+          height: 3.5rem;
+          width: 3rem; } }
   @media (max-width: 68.75rem) {
     .section-wrapper.first p {
       width: 70%; } }
@@ -617,6 +626,8 @@ table {
     display: block; }
   .section-content > .contact {
     display: none; }
+    .section-content > .contact a {
+      background-color: initial !important; }
   @media (max-width: 32.1875rem) {
     .section-content .contact {
       display: block;
@@ -656,6 +667,12 @@ table {
     letter-spacing: 1px;
     padding: 0.4375rem 0;
     margin-right: 1rem; }
+
+.button-wrapper {
+  text-align: center; }
+  @media (max-width: 46.875rem) {
+    .button-wrapper a {
+      display: inline-block; } }
 
 footer {
   height: 18.75rem;
