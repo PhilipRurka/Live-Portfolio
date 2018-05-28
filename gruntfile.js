@@ -116,6 +116,13 @@ module.exports = function(grunt) {
           dest: './',
           expand: true,
           ext: '.html'
+        },
+        {
+          cwd: 'app/client/',
+          src: 'projects.pug',
+          dest: './',
+          expand: true,
+          ext: '.html'
         }]
       },
       prod: {
@@ -125,6 +132,13 @@ module.exports = function(grunt) {
         files: [{
           cwd: './app/client/',
           src: 'index.pug',
+          dest: './',
+          expand: true,
+          ext: '.html'
+        },
+        {
+          cwd: 'app/client/',
+          src: 'projects.pug',
           dest: './',
           expand: true,
           ext: '.html'
@@ -147,12 +161,12 @@ module.exports = function(grunt) {
         }
       },
       pug: {
-        files: ['app/client/index.pug'],
+        files: ['app/client/index.pug', 'app/client/projects.pug'],
         tasks: ['compilePUG'],
         options: {
           spawns: false
         }
-      }
+      },
     },
     // Start the dev env with nodemon
     nodemon: {
