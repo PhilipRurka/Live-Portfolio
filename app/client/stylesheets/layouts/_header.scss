@@ -1,0 +1,93 @@
+.header-wrapper {
+  padding: 34px 0 0 60px;
+
+  label {
+    position: relative;
+    padding-left: 6rem;
+    font-size: 3.5rem!important;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 5rem;
+      width: 4.3rem;
+      background-image: url('/images/philip-rurka-logo.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  hr {
+    height: 3px;
+    background-color: black;
+    margin-top: 14px;
+  }
+}
+
+
+.nav-wrapper {
+  li {
+    position: relative;
+    display: inline-block;
+    padding: 1.25em 2em;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 3px 0;
+      width: 0;
+      border-bottom: 0.3em solid $color-main-purple;
+      content: attr(ng-title);
+      transition: width 0.2s ease;
+    }
+
+    &:hover {
+
+      a {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+
+    &.selected {
+      cursor: initial;
+      &::before {
+        width: 100%;
+      }
+
+      a {
+        cursor: initial;
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    color: $color-main-white;
+    cursor: pointer;
+    padding: 3px 0;
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 3px 0;
+      width: 0;
+      color: $color-main-green;
+      overflow: hidden;
+      white-space: nowrap;
+      content: attr(ng-title);
+      transition: width 0.2s ease;
+    }
+  }
+}

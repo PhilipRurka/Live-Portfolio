@@ -35,8 +35,15 @@ module.exports = function(grunt) {
     // Concatenated all the JS files into one
     concat: {
       js: {
-        src: ['app/client/javascript.js'],
-        dest: 'main.js' // Use this file for local development
+        src: [
+          'app/client/javascripts/vendors/angular.js',
+          'app/client/javascripts/vendors/angulartics.js',
+          'app/client/javascripts/vendors/jquery.js',          
+          'app/client/javascripts/vendors/*.js',
+          'app/client/javascripts/app.js',
+          'app/client/javascripts/**/*.js',
+        ],
+        dest: 'resources/main.js' // Use this file for local development
       }
     },
     // Add [] annotations to all the concatenated angular code
@@ -46,7 +53,7 @@ module.exports = function(grunt) {
       },
       app: {
         files: {
-          'main.js': ['main.js']
+          'resources/main.js': ['resources/main.js']
         }
       }
     },
@@ -58,15 +65,15 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'main.js': 'main.js'
+          'resources/main.js': 'resources/main.js'
         }
       }
     },
     // Minified the Annotated js code
     uglify: {
       js: {
-        src: ['main.js'],
-        dest: 'main.js'
+        src: ['resources/main.js'],
+        dest: 'resources/main.js'
       }
     },
     // Compile SASS
@@ -81,7 +88,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          './main.css': './app/client/stylesheets/main.scss'
+          './resources/main.css': './app/client/stylesheets/main.scss'
         }
       },
       prod: {
@@ -89,7 +96,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          './main.css': './app/client/stylesheets/main.scss'
+          './resources/main.css': './app/client/stylesheets/main.scss'
         }
       }
     },
@@ -101,19 +108,19 @@ module.exports = function(grunt) {
         ]
       },
       dist: { // Default env
-        src: 'main.css'
+        src: 'resources/main.css'
       }
     },
     // Compiles Pug
     pug: {
       dev: {
         options: {
-          pretty: false
+          pretty: true
         },
         files: [{
-          cwd: 'app/client/',
-          src: 'index.pug',
-          dest: './',
+          cwd: 'app/client/views',
+          src: '**/*.pug',
+          dest: 'resources',
           expand: true,
           ext: '.html'
         }]
@@ -123,9 +130,9 @@ module.exports = function(grunt) {
           pretty: false
         },
         files: [{
-          cwd: './app/client/',
-          src: 'index.pug',
-          dest: './',
+          cwd: './app/client/views',
+          src: '**/*.pug',
+          dest: './resources',
           expand: true,
           ext: '.html'
         }]
@@ -133,7 +140,7 @@ module.exports = function(grunt) {
     },
     watch: { // Grunt Watcher that executes tasks when certail file types change
       js: {
-        files: ['app/client/javascript.js'],
+        files: ['app/client/javascripts/**/*.js'],
         tasks: ['concatJS'],
         options: {
           spawns: false
@@ -147,7 +154,7 @@ module.exports = function(grunt) {
         }
       },
       pug: {
-        files: ['app/client/index.pug'],
+        files: ['app/client/views/**/*.pug'],
         tasks: ['compilePUG'],
         options: {
           spawns: false

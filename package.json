@@ -1,5 +1,5 @@
 {
-  "name": "philip_rurka",
+  "name": "PhilipRurka",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -10,7 +10,7 @@
     "start": "grunt dev",
     "debug": "grunt dev"
   },
-  "author": "Philip Rurka",
+  "author": "PhilipRurka",
   "license": "ISC",
   "dependencies": {
     "arrive": "^2.3.1",
@@ -42,6 +42,8 @@
     "unused": true,
     "expr": true,
     "predef": [
+      "angular",
+      "app",
       "window",
       "document",
       "ga",

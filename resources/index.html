@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="philipRurka" ng-controller="philipRurkaController">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale="1" user-scalable="4">
     <base href="/">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Philip Rurka | Porfolio</title>
   </head>
   <body>
-    <header></header>
-    <div class="core">
-      <h1>Hello World Again!</h1>
+    <div class="header-wrapper">
+      <div class="header-container">
+        <div class="header-content">
+          <label>Philip Rurka</label>
+          <hr>
+          <div class="nav-wrapper">
+            <ul>
+              <li ng-repeat="option in navOptions" ng-class="{&quot;selected&quot; : currentState === option}" ng-click="$goToState(option)"><a ng-title="{{option}}">{{option}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <footer></footer>
+    <div class="core">
+      <ui-view></ui-view>
+    </div>
+    <footer>
+      <div class="footer-wrapper">
+        <p>Say Hey!</p><a>hey@<strong>philiprurka.com</strong></a>
+        <div class="image-wrapper"><a class="image github" href="https://github.com/PhilipRurka" target="_blank"></a><a class="image linkedin" href="https://www.linkedin.com/in/philip-rurka-447194127/" target="_blank"></a></div>
+      </div>
+    </footer>
     <script src="main.js"></script>
   </body>
 </html>

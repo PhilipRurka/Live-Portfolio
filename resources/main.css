@@ -1,7 +1,35 @@
+body {
+  overflow-x: hidden; }
+
+a {
+  background-color: transparent; }
+
+.image-wrapper .image {
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+*,
+*:focus {
+  outline: none;
+  border: none; }
+
+.clearfix::before, .clearfix::after {
+  display: table;
+  content: " "; }
+
+.clearfix::after {
+  clear: both; }
+
+ul {
+  list-style-type: none; }
+
 /*! normalize.css v1.1.0 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
+* {
+  box-sizing: border-box; }
+
 /**
  * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
@@ -168,7 +196,7 @@ mark {
  */
 p,
 pre {
-  margin: 1em 0; }
+  margin: 0; }
 
 /**
  * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
@@ -441,6 +469,280 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+.header-wrapper {
+  padding: 34px 0 0 60px; }
+  .header-wrapper label {
+    position: relative;
+    padding-left: 6rem;
+    font-size: 3.5rem !important; }
+    .header-wrapper label::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+      height: 5rem;
+      width: 4.3rem;
+      background-image: url("/images/philip-rurka-logo.png");
+      background-repeat: no-repeat;
+      background-size: contain; }
+  .header-wrapper hr {
+    height: 3px;
+    background-color: black;
+    margin-top: 14px; }
+
+.nav-wrapper li {
+  position: relative;
+  display: inline-block;
+  padding: 1.25em 2em;
+  cursor: pointer; }
+  .nav-wrapper li::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3px 0;
+    width: 0;
+    border-bottom: 0.3em solid #6250ff;
+    content: attr(ng-title);
+    transition: width 0.2s ease; }
+  .nav-wrapper li:hover a::before {
+    width: 100%; }
+  .nav-wrapper li.selected {
+    cursor: initial; }
+    .nav-wrapper li.selected::before {
+      width: 100%; }
+    .nav-wrapper li.selected a {
+      cursor: initial; }
+      .nav-wrapper li.selected a::before {
+        width: 100%; }
+
+.nav-wrapper a {
+  position: relative;
+  display: inline-block;
+  color: #F0F1F2;
+  cursor: pointer;
+  padding: 3px 0; }
+  .nav-wrapper a::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3px 0;
+    width: 0;
+    color: #62db94;
+    overflow: hidden;
+    white-space: nowrap;
+    content: attr(ng-title);
+    transition: width 0.2s ease; }
+
+.core {
+  position: relative; }
+
+.section-wrapper {
+  position: relative;
+  height: 18.75rem;
+  padding-left: 10rem; }
+  @media (max-width: 68.75rem) {
+    .section-wrapper {
+      padding-left: 4rem; } }
+  @media (max-width: 46.875rem) {
+    .section-wrapper {
+      padding-left: 2rem;
+      height: initial; } }
+  .section-wrapper.bluekiwi label,
+  .section-wrapper.bluekiwi p, .section-wrapper.red label,
+  .section-wrapper.red p {
+    color: white; }
+  .section-wrapper.bluekiwi hr, .section-wrapper.red hr {
+    border-color: white; }
+  .section-wrapper.bluekiwi {
+    background-color: #6250ff; }
+    @media (max-width: 46.875rem) {
+      .section-wrapper.bluekiwi {
+        padding: 4rem 0rem 4rem 2rem; }
+        .section-wrapper.bluekiwi p {
+          padding-right: 2rem; } }
+  .section-wrapper.red {
+    background-color: #ff5b5c; }
+  .section-wrapper .section-container {
+    position: relative;
+    height: 100%; }
+    .section-wrapper .section-container .button-wrapper {
+      display: none;
+      margin-right: 2rem; }
+      @media (max-width: 46.875rem) {
+        .section-wrapper .section-container .button-wrapper {
+          display: block; } }
+      .section-wrapper .section-container .button-wrapper button {
+        display: block;
+        margin: auto; }
+    .section-wrapper .section-container .section-content {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+      @media (max-width: 46.875rem) {
+        .section-wrapper .section-container .section-content.break {
+          position: relative;
+          top: initial;
+          left: initial;
+          right: initial;
+          -ms-transform: initial;
+              transform: initial; } }
+    @media (max-width: 46.875rem) {
+      .section-wrapper .section-container .image-wrapper {
+        margin-right: 2rem; } }
+    .section-wrapper .section-container .image {
+      display: block;
+      height: 16rem;
+      width: 28rem;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+      background-image: url("/images/BlueKiwi.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; }
+      @media (max-width: 68.75rem) {
+        .section-wrapper .section-container .image {
+          right: -6.25rem; } }
+      @media (max-width: 46.875rem) {
+        .section-wrapper .section-container .image {
+          position: relative;
+          top: initial;
+          left: initial;
+          right: initial;
+          -ms-transform: initial;
+              transform: initial;
+          margin: 2rem auto; } }
+      @media (max-width: 32.1875rem) {
+        .section-wrapper .section-container .image {
+          height: 100%;
+          width: 100%;
+          padding-bottom: 45vw; } }
+  .section-wrapper label {
+    font-size: 1.5rem; }
+  .section-wrapper hr {
+    border: none;
+    border-bottom: 0.2rem solid black;
+    margin: 1rem 0; }
+  .section-wrapper p {
+    width: calc(100% - 28rem);
+    font-weight: 100; }
+    @media (max-width: 46.875rem) {
+      .section-wrapper p {
+        width: 100%; } }
+  .section-wrapper a {
+    display: inline-block;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.8rem 0.2rem;
+    margin-top: 2rem; }
+    .section-wrapper a:hover {
+      background-color: black; }
+    @media (max-width: 46.875rem) {
+      .section-wrapper a {
+        display: none; } }
+
+.contact {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1; }
+  .core > .contact {
+    display: block; }
+  .section-content > .contact {
+    display: none; }
+    .section-content > .contact a {
+      background-color: initial !important; }
+  @media (max-width: 32.1875rem) {
+    .section-content .contact {
+      display: block;
+      position: relative;
+      top: initial;
+      right: initial; }
+      .section-content .contact .image-wrapper,
+      .section-content .contact p {
+        float: initial; }
+      .section-content .contact .image-wrapper {
+        margin-top: 2rem; }
+      .section-content .contact .image {
+        padding: 0;
+        margin: 0;
+        display: inline-block; }
+        .section-content .contact .image + .image {
+          margin-left: 1rem; }
+    .core > .contact {
+      display: none; } }
+  .contact .image-wrapper,
+  .contact p {
+    float: right; }
+  .contact .image-wrapper a {
+    display: inline-block; }
+    .contact .image-wrapper a + a {
+      margin-left: 1rem; }
+  .contact .image-wrapper .image.github {
+    height: 2rem;
+    width: 2rem;
+    background-image: url("/images/github-green.svg"); }
+  .contact .image-wrapper .image.linkedin {
+    height: 2rem;
+    width: 2rem;
+    background-image: url("/images/linkedin-green.svg"); }
+  .contact p {
+    color: #6250ff;
+    letter-spacing: 1px;
+    padding: 0.4375rem 0;
+    margin-right: 1rem; }
+
+.button-wrapper {
+  text-align: center; }
+  @media (max-width: 46.875rem) {
+    .button-wrapper a {
+      display: inline-block;
+      margin: 0 !important; } }
+
+footer {
+  height: 18.75rem;
+  position: relative; }
+  footer .footer-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    display: table;
+    margin: auto;
+    text-align: center; }
+  footer a {
+    display: table;
+    margin: 2rem auto;
+    color: #ff5b5c; }
+    footer a + a {
+      margin: auto; }
+  footer .image-wrapper {
+    border-radius: 50%; }
+    footer .image-wrapper a {
+      display: inline-block;
+      margin: auto; }
+      footer .image-wrapper a + a {
+        margin-left: 1rem; }
+    footer .image-wrapper .github {
+      height: 2rem;
+      width: 2rem;
+      background-image: url("/images/github-red.svg"); }
+    footer .image-wrapper .linkedin {
+      height: 2rem;
+      width: 2rem;
+      background-image: url("/images/linkedin-red.svg"); }
 
 button:focus {
   outline: 0; }
