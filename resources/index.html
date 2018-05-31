@@ -6,16 +6,20 @@
     <base href="/">
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal:400,700" rel="stylesheet">
     <title>Philip Rurka | Porfolio</title>
   </head>
   <body>
     <div class="header-wrapper">
       <div class="header-container">
-        <div class="header-content">
+        <div class="header-content clearfix">
           <label>Philip Rurka</label>
           <hr>
+          <div class="float-right"><a>hey@<strong>philiprurka.com</strong></a>
+            <div class="image-wrapper"><a class="image github" href="https://github.com/PhilipRurka" target="_blank"></a><a class="image linkedin" href="https://www.linkedin.com/in/philip-rurka-447194127/" target="_blank"></a></div>
+          </div>
           <div class="nav-wrapper">
-            <ul>
+            <ul class="clearfix">
               <li ng-repeat="option in navOptions" ng-class="{&quot;selected&quot; : currentState === option}" ng-click="$goToState(option)"><a ng-title="{{option}}">{{option}}</a></li>
             </ul>
           </div>
@@ -25,12 +29,6 @@
     <div class="core">
       <ui-view></ui-view>
     </div>
-    <footer>
-      <div class="footer-wrapper">
-        <p>Say Hey!</p><a>hey@<strong>philiprurka.com</strong></a>
-        <div class="image-wrapper"><a class="image github" href="https://github.com/PhilipRurka" target="_blank"></a><a class="image linkedin" href="https://www.linkedin.com/in/philip-rurka-447194127/" target="_blank"></a></div>
-      </div>
-    </footer>
     <script src="main.js"></script>
   </body>
 </html>

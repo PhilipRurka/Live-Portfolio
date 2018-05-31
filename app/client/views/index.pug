@@ -3,34 +3,33 @@ html(ng-app='philipRurka', ng-controller='philipRurkaController')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0', maximum-scale=1, user-scalable=04)
-    //- meta(http-equiv="Content-Security-Policy", content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;")
     base(href='/')
     link(rel='shortcut icon', type='image/png' href='/images/favicon.png')
     link(rel='stylesheet', type='text/css', href='main.css')
+    link(href="https://fonts.googleapis.com/css?family=Tajawal:400,700", rel="stylesheet")
+
+
     title Philip Rurka | Porfolio
 
   body
     .header-wrapper
       .header-container
-        .header-content
+        .header-content.clearfix
           label Philip Rurka
           hr
-
+          .float-right
+            a
+              | hey@
+              strong philiprurka.com
+            .image-wrapper
+              a.image.github(href='https://github.com/PhilipRurka', target='_blank')
+              a.image.linkedin(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
           .nav-wrapper
-            ul
+            ul.clearfix
               li(ng-repeat='option in navOptions', ng-class='{"selected" : currentState === option}', ng-click='$goToState(option)')
                 a(ng-title='{{option}}') {{option}}
     .core
       ui-view
-    footer
-      .footer-wrapper
-        p Say Hey!
-        a
-          | hey@
-          strong philiprurka.com
-        .image-wrapper
-          a.image.github(href='https://github.com/PhilipRurka', target='_blank')
-          a.image.linkedin(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
         
     //- Javascript
     script(src='main.js')

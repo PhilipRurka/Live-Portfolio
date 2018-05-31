@@ -46840,6 +46840,7 @@ app.controller('philipRurkaController', ['$rootScope', '$state', function ($root
   /*****************************************/
   /********** ROOTSCOPE VARIABLES **********/
   /*****************************************/
+  $rootScope.currentState = 'home';
   $rootScope.navOptions = ['home', 'projects'];
 
   /************************************/

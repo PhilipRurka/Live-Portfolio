@@ -1,0 +1,83 @@
+$left-section: 59%;
+$right-section: 40%;
+
+.home-wrapper {
+  padding: 0 4rem;
+
+  > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .left-section {
+    height: calc(100vh - 183px);
+    width: $left-section;
+    padding-right: 3.5rem;
+
+    .image-wrapper {
+      height: 100%;
+      width: 100%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  
+  .right-section {
+    width: $right-section;
+    overflow-y: scroll;
+    height: calc(100vh - 183px);
+    padding: 0 3px 2rem;
+  
+    label {
+      font-size: 28px;
+    }
+  
+    p {
+      line-height: 2em;
+    }
+
+    .chunk-1,
+    .chunk-2 {
+      padding: 0 1rem;
+    }
+  
+    .chunk-1 {
+      margin-bottom: 4rem;
+      padding-top: 2rem;
+
+      label {
+        color: $color-main-purple;
+      }
+    }
+  
+    .chunk-2 {
+      padding-bottom: 1rem;
+
+      label {
+        color: $color-main-green;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .left-section,
+    .right-section {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+    }
+
+    .right-section {
+      overflow: initial;
+      padding: 1.6rem 0 4rem 3px;
+    }
+  }
+
+  @media (max-width: 690px) {
+    padding: 0 1rem;
+  }
+}
+
