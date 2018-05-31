@@ -28,13 +28,13 @@ app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/resources'));
 
 app.get('/', function(req, res, next) {
-  res.sendFile('index.html', {
+  res.sendFile('404.html', {
     root: __dirname + '/resources'
   });
 });
 
 app.get('/projects', function(req, res, next) {
-  res.sendFile('index.html', {
+  res.sendFile('404.html', {
     root: __dirname + '/resources'
   });
 });
