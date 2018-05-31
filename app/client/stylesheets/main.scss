@@ -7,17 +7,20 @@
         // Vendors
 
         // Bases 
-        'bases/base',
         'bases/normalize',
+        'bases/base',
+
+        // Components
+        'components/button',
+        'components/gradient-border',
 
         // Layouts
         'layouts/header',
         'layouts/core',
         'layouts/footer',
 
-        // Components
-        'components/button';
-
-        // States
+        // Pages
+        'pages/home',
+        'pages/projects';
 
         // Themes

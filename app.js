@@ -25,17 +25,31 @@ app.use(bodyParser.json());
 /************************************/
 /********** STATICS ROUTES **********/
 /************************************/
-app.use(express.static(__dirname));
+app.use('/', express.static(__dirname + '/resources'));
 
-/****************************/
-/********** ROUTES **********/
-/****************************/
-// Render the index files when no resources path matches
-router.get('/*', (req, res) => {
+app.get('/', function(req, res, next) {
   res.sendFile('index.html', {
-    root: __dirname + '/../../../'
+    root: __dirname + '/resources'
   });
 });
+
+app.get('/projects', function(req, res, next) {
+  res.sendFile('index.html', {
+    root: __dirname + '/resources'
+  });
+});
+
+app.get('*',function (req, res) {
+  res.redirect('/');
+});
+
+
+/********************************/
+/********** MIDDLEWARE **********/
+/********************************/
+// Middleware for all files
+app.use(require(__dirname + '/app/server/middlewares/logger.js'));
+
 
 
 /*****************************/
@@ -68,3 +82,4 @@ app.listen(app.get('port'), () => {
   console.log('--------------------------------');
   console.log('');
 });
+
