@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const router = require('express').Router();
+const morgan = require('morgan');
 
 /************************************/
 /********** CONFIGURATIONS **********/
@@ -21,41 +22,19 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use(morgan('combined'));
+
 
 /************************************/
 /********** STATICS ROUTES **********/
 /************************************/
 app.use('/', express.static(__dirname + '/resources'));
 
-app.get('/', function(req, res, next) {
+app.get('/*',function (req, res) {
   res.sendFile('index.html', {
     root: __dirname + '/resources'
   });
 });
-
-app.get('/projects', function(req, res, next) {
-  res.sendFile('index.html', {
-    root: __dirname + '/resources'
-  });
-});
-
-app.get('*',function (req, res) {
-  res.redirect('/');
-});
-
-
-/********************************/
-/********** MIDDLEWARE **********/
-/********************************/
-// Middleware for all files
-app.use(require(__dirname + '/app/server/middlewares/logger.js'));
-
-
-
-/*****************************/
-/********** EXPORTS **********/
-/*****************************/
-module.exports = router;
 
 
 /**********************************/
