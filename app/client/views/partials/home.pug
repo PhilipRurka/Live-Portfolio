@@ -1,7 +1,7 @@
 .home-wrapper
   .left-section
     .image-wrapper
-      img(src='/images/personal-photo.jpg')
+      img(ng-src='{{currentImage}}', ng-class='{"opacity-out" : opacityOut}')
   .right-section
     .section-wrapper
       .chunk-1.top-left
