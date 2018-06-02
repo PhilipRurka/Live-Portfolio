@@ -1,7 +1,7 @@
 node_modules
 *.log
 *.log.*
-main.js
-main.css
 index.html
 resources/partials/*
+resources/main.css
+resources/main.js
