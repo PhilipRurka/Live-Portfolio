@@ -4,3 +4,4 @@ node_modules
 main.js
 main.css
 index.html
+resources/partials/*
