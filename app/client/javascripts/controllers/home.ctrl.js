@@ -4,7 +4,6 @@ function($scope, $timeout) {
   /*******************************/
   /********** VARIABLES **********/
   /*******************************/
-  let imagesObject = [];
   let numberOfImages = 3;
 
   /*****************************************/
@@ -16,11 +15,13 @@ function($scope, $timeout) {
   /*********** INIT FUNCTION **********/
   /************************************/
   for (let i = 0; i < numberOfImages; i++) {
-    imagesObject.push('/images/personal/photo-' + i + '.jpg');
+    var image = image || [];
+    image.push('/images/personal/photo-' + i + '.jpg');
   }
 
-  imageIteration();
-  setInterval(imageIteration, 5000);
+  $scope.imagesObject = image;
+
+  imageIteration(); setInterval(imageIteration, 5000);
 
 
   /*******************************/
@@ -38,7 +39,7 @@ function($scope, $timeout) {
   /*******************************/
   function imageIteration() {
     numberOfImages ++;
-    if(imagesObject.length <= numberOfImages) {
+    if($scope.imagesObject.length <= numberOfImages) {
       numberOfImages = 0;
     }
     
@@ -46,10 +47,9 @@ function($scope, $timeout) {
       $scope.opacityOut = true;
     })
     $timeout(function() {
-      $scope.currentImage = imagesObject[numberOfImages];
+      $scope.currentImage = $scope.imagesObject[numberOfImages];
       $scope.opacityOut = false;
     }, 500)
   }
-
 
 });
