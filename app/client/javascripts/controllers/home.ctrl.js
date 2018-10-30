@@ -1,16 +1,13 @@
 'use strict';
 app.controller('homeController',
-function($scope, $timeout) {
+function($rootScope, $scope, $timeout) {
   /*******************************/
   /********** VARIABLES **********/
   /*******************************/
   let numberOfImages = 3;
+  $rootScope.currentState = 'home';
 
-  /*****************************************/
-  /********** ROOTSCOPE VARIABLES **********/
-  /*****************************************/
-
-
+  
   /************************************/
   /*********** INIT FUNCTION **********/
   /************************************/
