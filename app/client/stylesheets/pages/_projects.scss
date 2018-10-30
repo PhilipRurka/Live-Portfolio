@@ -14,7 +14,7 @@
     }
 
     &.bluekiwi,
-    &.red {
+    &.simptek {
       label,
       p {
         color: white;
@@ -28,6 +28,10 @@
     &.bluekiwi {
       background-color: $color-main-purple;
 
+      .image {
+        background-image: url('/images/BlueKiwi.png');
+      }
+
       @media (max-width: 46.875rem) {
         padding: 4rem 0rem 4rem 2rem;
 
@@ -37,8 +41,20 @@
       }
     }
 
-    &.red {
+    &.simptek {
       background-color: $color-main-red;
+
+      .image {
+        background-image: url('/images/SimpTek.png');
+      }
+
+      @media (max-width: 46.875rem) {
+        padding: 4rem 0rem 4rem 2rem;
+
+        p {
+          padding-right: 2rem;
+        }
+      }
     }
     
     .section-container {
@@ -92,7 +108,6 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        background-image: url('/images/BlueKiwi.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

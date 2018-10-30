@@ -4,7 +4,6 @@ function($rootScope, $state) {
   /*****************************************/
   /********** ROOTSCOPE VARIABLES **********/
   /*****************************************/
-  $rootScope.currentState = 'home';
   $rootScope.navOptions = ['home', 'projects'];
 
   /************************************/
