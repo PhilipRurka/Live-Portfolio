@@ -44,11 +44,35 @@ $nav-items-padding: 6px 0 0;
     float: right;
     margin: 1rem 4rem 0 0;
 
-    > a {
-      color: $color-main-red;  
+    .email-wrapper {
+      position: relative;
+
+      &:hover {
+        > a + a {
+          width: 156px;
+        }
+      }
+
+      > a {
+        display: inline-block;
+        text-decoration: none;
+        color: $color-main-red;
+        transition: width 0.3s ease;
+        font-size: 1rem;
+  
+        + a {
+          width: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: $color-main-purple;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
     }
 
-    > a,
+    > .email-wrapper,
     .image-wrapper {
       display: inline-block;
       vertical-align: middle;
@@ -65,26 +89,51 @@ $nav-items-padding: 6px 0 0;
     margin-left: 0.75rem;
     border-radius: 50%;
 
-    a {
+    .image-container {
+      position: relative;
       display: inline-block;
       margin: auto;
 
-      + a {
-        margin-left: 1rem;
+      &:hover {
+        .image-content + .image-content {
+          width: 2rem;
+        }
+      }
+
+      .image-content {
+        display: inline-block;
+        transition: width 0.3s ease;
+
+        + .image-content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          width: 0;
+        }
+      }
+
+      + .image-container {
+        margin-left: 0.75rem;
+      }
+  
+      .image {
+        display: inline-block;
       }
     }
-    
-    .github {
-      height: 2rem;
-      width: 2rem;
-      background-image: url('/images/github-red.svg');
-    }
 
-    .linkedin {
+    .github-red,
+    .github-purple,
+    .linkedin-red,
+    .linkedin-purple {
       height: 2rem;
       width: 2rem;
-      background-image: url('/images/linkedin-red.svg');
     }
+    
+    .github-red { background-image: url('/images/github-red.svg'); }
+    .github-purple { background-image: url('/images/github-purple.svg'); }
+    .linkedin-red { background-image: url('/images/linkedin-red.svg'); }
+    .linkedin-purple { background-image: url('/images/linkedin-purple.svg'); }
   }
 
   .nav-wrapper {
