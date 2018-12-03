@@ -18,19 +18,31 @@ html(ng-app='philipRurka', ng-controller='philipRurkaController')
           label Philip Rurka
           hr
           .float-right
-            a
-              | hey@
-              strong philiprurka.com
+            .email-wrapper
+              a(href='mailto:hey@philiprurka.com')
+                | hey@
+                strong philiprurka.com
+              a(href='mailto:hey@philiprurka.com')
+                | hey@
+                strong philiprurka.com
             .image-wrapper
-              a.image.github(href='https://github.com/PhilipRurka', target='_blank')
-              a.image.linkedin(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
+              .image-container
+                .image-content
+                  a.image.github-red(href='https://github.com/PhilipRurka', target='_blank')
+                .image-content
+                  a.image.github-purple(href='https://github.com/PhilipRurka', target='_blank')
+              .image-container
+                .image-content
+                  a.image.linkedin-red(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
+                .image-content
+                  a.image.linkedin-purple(href='https://www.linkedin.com/in/philip-rurka-447194127/', target='_blank')
           .nav-wrapper
             ul.clearfix
               li(ng-repeat='option in navOptions', ng-class='{"selected" : currentState === option}', ng-click='$goToState(option)')
                 a(ng-title='{{option}}') {{option}}
     .core
       ui-view
-        
+    
     //- Javascript
     script(src='main.js')
 
