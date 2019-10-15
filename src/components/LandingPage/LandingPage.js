@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header';
 import styled from '@emotion/styled/macro';
 
 class LandingPage extends React.Component {
@@ -10,8 +9,8 @@ class LandingPage extends React.Component {
     const { Wrapper } = this;
 
     return (
-      <Wrapper>
-
+      <Wrapper className='container'>
+        <h1>Landing Page!</h1>
       </Wrapper>
     );
   };
