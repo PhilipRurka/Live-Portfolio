@@ -1,8 +1,42 @@
 /** @jsx jsx */
 import React from 'react';
+import { jsx, keyframes } from "@emotion/core";
 import styled from '@emotion/styled/macro';
-import { jsx, css, keyframes } from '@emotion/core'
 import { COLORS } from '../../helpers/colors';
+
+class Navbar extends React.Component {
+
+  goToPage = (location) => {
+    const { props: { history } } = this;
+    history.push(location);
+  };
+
+  render() {
+    const {
+      goToPage,
+      props: {
+        currentLocation
+      }
+    } = this;
+
+    return (
+      < >
+        <NavItem
+          triggeredLocation='/'
+          copy='Home'
+          goToPage={goToPage}
+          currentLocation={currentLocation}
+        />
+        <NavItem
+          triggeredLocation='/projects'
+          copy='Projects'
+          goToPage={goToPage}
+          currentLocation={currentLocation}
+        />
+      </ >
+    );
+  };
+};
 
 const selectedAnimation = keyframes`
   0% {
@@ -14,9 +48,19 @@ const selectedAnimation = keyframes`
   }
 `
 
-class NavBar extends React.Component {
+const test = keyframes`
+  0% {
+    width: 0;
+  }
 
-  Wrapper = styled.div({});
+  100% {
+    width: 100%;
+  }
+`
+
+class NavItem extends React.Component {
+
+  activeState = null;
 
   Content = styled.div(() => {
     return {
@@ -41,9 +85,33 @@ class NavBar extends React.Component {
         bottom: 0
       }
     };
-  })
+  });
 
-  Label = styled.label(() => {
+  labelStyle = (triggeredLocation) => {
+    const { props: { currentLocation } } = this;
+
+    let beforeStyle;
+    if(currentLocation === triggeredLocation) {
+      this.activeState = true;
+      beforeStyle = {
+        animation: `${selectedAnimation} 1s ease-in-out`
+      };
+
+    } else {
+      if(this.activeState) {
+        beforeStyle = {
+          animation: `${selectedAnimation} 1s ease-in-out`,
+          animationDirection: 'reverse',
+          width: '0'
+        };
+
+      } else {
+        beforeStyle = {
+          width: '0',
+        }
+      }
+      this.activeState = false;
+    }
 
     return {
       position: 'relative',
@@ -66,7 +134,8 @@ class NavBar extends React.Component {
 
       '&::before': {
         color: COLORS.green,
-        zIndex: '1'
+        zIndex: '1',
+        ...beforeStyle
       },
 
       '&::after': {
@@ -74,82 +143,29 @@ class NavBar extends React.Component {
         width: '0'
       },
     };
-  });
-  
-  NavItem = ({ copy, triggeredLocation }) => {
-    const {
-      goToPage,
-      Label,
-      Content,
-      props: {
-        currentLocation
-      }
-    } = this;
-
-    return (
-      <Content
-        css={() => {
-
-          if((currentLocation === triggeredLocation)) {
-
-            return css`
-              &::before, &::after { animation: ${selectedAnimation} 0.5s ease-in-out; }
-            `
-          } else {
-            return css`
-              &::before, &::after { width: 0; }
-            `
-          }
-        }}
-      >
-        <Label
-          title={copy}
-          triggeredLocation={triggeredLocation}
-          onClick={() => ( goToPage(triggeredLocation) )}
-          css={() => {
-
-            if((currentLocation === triggeredLocation)) {
-
-              return css`
-                &::before { animation: ${selectedAnimation} 0.5s ease-in-out; }
-              `
-            } else {
-              return css`
-                &::before { width: 0; }
-              `
-            }
-          }}
-        >{copy}</Label>
-      </Content>
-    );
-  };
-
-  goToPage = (location) => {
-    const { props: { history } } = this;
-    history.push(location);
   };
 
   render() {
-    const { Wrapper, NavItem } = this;
+    const {
+      Content,
+      labelStyle,
+      props: {
+        triggeredLocation,
+        copy,
+        goToPage
+      }
+    } = this;
 
-    return (
-      <Wrapper>
-        <NavItem
-          triggeredLocation='/'
-          copy='Home' />
-        <NavItem
-          triggeredLocation='/projects'
-          copy='Projects' />
-      </Wrapper>
+    return(
+      <Content>
+        <label
+          title={copy}
+          onClick={() => ( goToPage(triggeredLocation) )}
+          css={labelStyle(triggeredLocation)}
+        >{copy}</label>
+      </Content>
     );
   };
 };
 
-
-export default NavBar;
-
-
-/**
- * On Page did mount, update the currentLocation store property.
- * That will in return update the NavItems.
- */
+export default Navbar;

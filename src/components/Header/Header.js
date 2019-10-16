@@ -34,7 +34,6 @@ const Wrapper = styled.div({
 });
 
 const Header = () => {
-  
 
   return (
     <Wrapper className='container'>
