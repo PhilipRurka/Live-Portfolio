@@ -5,7 +5,7 @@ import NavBar from '../NavBar';
 const Wrapper = styled.div({
   paddingTop: '2.125rem',
 
-  'h1': {
+  '& > h1': {
     fontSize: '3.5rem',
     position: 'relative',
     paddingLeft: '6rem',
