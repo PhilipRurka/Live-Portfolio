@@ -21,7 +21,7 @@ const Wrapper = styled.div({
       transform: 'translateY(-50%)',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'contain',
-      backgroundImage: 'url(./images/philip-rurka-logo.png)',
+      backgroundImage: 'url("./images/philip-rurka-logo.png")',
     }
   },
 
@@ -40,7 +40,6 @@ const Header = () => {
       <h1>Philip Rurka</h1>
       <hr />
       <NavBar />
-      
     </Wrapper>
   );
 };

@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
+import { navTransition } from '../../helpers/general';
+
+  
 
 const Content = styled.div(({ triggeredLocation, currentLocation }) => {
   let psudoStyle;
   let addedStyle;
-
-  const sharedStyles = {
-    overflow: 'hidden',
-    width: '0',
-    transition: 'width 0.3s ease'
-  };
 
   if(currentLocation === triggeredLocation) {
     addedStyle = null;
@@ -30,11 +27,10 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
       content: '""',
       position: 'absolute',
       left: '0',
-      width: '100%',
       height: '0.3rem',
       backgroundColor: COLORS.green,
       width: '0',
-      ...sharedStyles,
+      ...navTransition,
       ...psudoStyle
     },
 
@@ -63,7 +59,7 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
         position: 'absolute',
         top: '0',
         left: '0',
-        ...sharedStyles
+        ...navTransition
       },
 
       '&::before': {

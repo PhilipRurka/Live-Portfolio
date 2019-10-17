@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { COLORS } from '../../helpers/colors';
 import NavItem from '../NavItem';
-
-
-
-
-
-
+import Contact from '../Contact';
 
 class Navbar extends React.Component {
 
@@ -31,7 +25,6 @@ class Navbar extends React.Component {
     const {
       Wrapper,
       NavItems,
-      Contact,
       goToPage,
       props: {
         currentLocation
