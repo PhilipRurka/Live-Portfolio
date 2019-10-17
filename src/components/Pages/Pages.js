@@ -1,7 +1,6 @@
 import React from 'react';
 import LandingPage from '../LandingPage';
 import ProjectsPage from '../ProjectsPage/ProjectsPage';
-import Header from '../Header';
 import styled from '@emotion/styled/macro';
 
 class Pages extends React.Component {
@@ -35,7 +34,6 @@ class Pages extends React.Component {
 
     return (
       <Wrapper>
-        <Header />
         {chosenPage}
       </Wrapper>
     );

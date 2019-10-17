@@ -3,6 +3,7 @@ import React from 'react';
 import { jsx, keyframes } from "@emotion/core";
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
+import './styles.scss';
 
 class Navbar extends React.Component {
 
@@ -46,61 +47,51 @@ const selectedAnimation = keyframes`
   100% {
     width: 100%;
   }
-`
-
-const test = keyframes`
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: 100%;
-  }
-`
+`;
 
 class NavItem extends React.Component {
 
   activeState = null;
 
-  Content = styled.div(() => {
-    return {
-      position: 'relative',
-      display: 'inline-block',
-      padding: '1.25em 2em',
+  contentStyle = {
+    position: 'relative',
+    display: 'inline-block',
+    padding: '1.25em 2em',
 
-      '&::before, &::after': {
-        content: '""',
-        position: 'absolute',
-        left: '0',
-        width: '100%',
-        height: '0.3rem',
-        backgroundColor: COLORS.green
-      },
+    '&::before, &::after': {
+      content: '""',
+      position: 'absolute',
+      left: '0',
+      width: '100%',
+      height: '0.3rem',
+      backgroundColor: COLORS.green
+    },
 
-      '&::before': {
-        top: 0
-      },
+    '&::before': {
+      top: 0
+    },
 
-      '&::after': {
-        bottom: 0
-      }
-    };
-  });
+    '&::after': {
+      bottom: 0
+    }
+  }
 
   labelStyle = (triggeredLocation) => {
     const { props: { currentLocation } } = this;
 
     let beforeStyle;
+    let addedStyle;
+    const animation = `${selectedAnimation} 1s ease-in-out`;
+
     if(currentLocation === triggeredLocation) {
       this.activeState = true;
-      beforeStyle = {
-        animation: `${selectedAnimation} 1s ease-in-out`
-      };
+      addedStyle = null;
+      beforeStyle = { animation };
 
     } else {
       if(this.activeState) {
         beforeStyle = {
-          animation: `${selectedAnimation} 1s ease-in-out`,
+          animation,
           animationDirection: 'reverse',
           width: '0'
         };
@@ -108,20 +99,23 @@ class NavItem extends React.Component {
       } else {
         beforeStyle = {
           width: '0',
-        }
-      }
+        };
+      };
+
+      addedStyle = { cursor: 'pointer' };
       this.activeState = false;
-    }
+    };
 
     return {
       position: 'relative',
       margin: '0',
       color: COLORS.red,
       letterSpacing: '1px',
+      ...addedStyle,
 
-      '&:hover::after': {
-        width: '100%'
-      },
+      // '&:hover::after': {
+      //   width: '100%'
+      // },
 
       '&::before, &::after': {
         content: 'attr(title)',
@@ -147,7 +141,7 @@ class NavItem extends React.Component {
 
   render() {
     const {
-      Content,
+      contentStyle,
       labelStyle,
       props: {
         triggeredLocation,
@@ -156,14 +150,16 @@ class NavItem extends React.Component {
       }
     } = this;
 
-    return(
-      <Content>
+    return (
+      <div
+        css={contentStyle}
+      >
         <label
           title={copy}
           onClick={() => ( goToPage(triggeredLocation) )}
-          css={labelStyle(triggeredLocation)}
+          css={ labelStyle(triggeredLocation) }
         >{copy}</label>
-      </Content>
+      </div>
     );
   };
 };
