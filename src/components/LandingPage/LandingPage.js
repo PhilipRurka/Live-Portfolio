@@ -1,19 +1,26 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import ImagesShowcase from '../ImagesShowcase';
 
-class LandingPage extends React.Component {
+  const LandingPageWrapper = styled.div({
+    '.col-6': {
+      display: 'inline-block',
+      padding: '0'
+    }
+  });
 
-  Wrapper = styled.div({});
+  const Description = styled.div({});
 
-  render() {
-    const { Wrapper } = this;
+  const LandingPage = () => {
 
-    return (
-      <Wrapper className='container'>
-        <h1>Landing Page!</h1>
-      </Wrapper>
-    );
-  };
+  return (
+    <LandingPageWrapper className='container'>
+      <ImagesShowcase />
+      <Description className='col-6'>
+
+      </Description>
+    </LandingPageWrapper>
+  );
 };
 
 export default LandingPage;
