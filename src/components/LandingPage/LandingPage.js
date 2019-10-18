@@ -1,25 +1,34 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import ImagesShowcase from '../ImagesShowcase';
+import GeneralDescription from '../GeneralDescription';
+import { breakPoints } from '../../helpers/breakPoints';
 
-  const LandingPageWrapper = styled.div({
-    '.col-6': {
-      display: 'inline-block',
-      padding: '0'
+  const LandingPageSection = styled.div({
+    display: 'inline-block',
+    verticalAlign: 'top',
+    padding: '0',
+
+    '& + div': {
+
+      
+      // [breakPoints.breakPointLG]: {
+      //   padding: '0'
+      // }
     }
   });
-
-  const Description = styled.div({});
 
   const LandingPage = () => {
 
   return (
-    <LandingPageWrapper className='container'>
-      <ImagesShowcase />
-      <Description className='col-6'>
-
-      </Description>
-    </LandingPageWrapper>
+    <div className='container'>
+      <LandingPageSection className='col-lg-6'>
+        <ImagesShowcase />
+      </LandingPageSection>
+      <LandingPageSection className='col-lg-6'>
+        <GeneralDescription />
+      </LandingPageSection>
+    </div>
   );
 };
 

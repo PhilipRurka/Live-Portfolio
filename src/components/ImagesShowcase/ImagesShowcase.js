@@ -53,7 +53,6 @@ class ImagesShowcase extends React.Component {
     }, 4000);
 
     setTimeout(() => {
-      console.log(newNumber);
       this.setState({ imageNumber: newNumber });
     }, 5000);
   };
@@ -62,11 +61,11 @@ class ImagesShowcase extends React.Component {
     const { ImageContainer, Image } = this;
 
     return (
-      <div className="col-6">
+      < >
         <ImageContainer>
           <Image />
         </ImageContainer>
-      </div>
+      </ >
     );
   };
 };

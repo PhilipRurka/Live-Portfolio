@@ -1,4 +1,3 @@
-
 export const COLORS = {
   white: '#F0F1F2',
   green: '#62db94',
