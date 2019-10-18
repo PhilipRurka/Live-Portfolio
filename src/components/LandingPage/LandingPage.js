@@ -2,20 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import ImagesShowcase from '../ImagesShowcase';
 import GeneralDescription from '../GeneralDescription';
-import { breakPoints } from '../../helpers/breakPoints';
 
   const LandingPageSection = styled.div({
     display: 'inline-block',
     verticalAlign: 'top',
     padding: '0',
-
-    '& + div': {
-
-      
-      // [breakPoints.breakPointLG]: {
-      //   padding: '0'
-      // }
-    }
   });
 
   const LandingPage = () => {

@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import NavBar from '../NavBar';
+import { breakPoints } from '../../helpers/breakPoints';
 
 const Wrapper = styled.div({
   paddingTop: '2.125rem',
 
   '& > h1': {
-    fontSize: '3.5rem',
+    fontSize: '2.5rem',
     position: 'relative',
-    paddingLeft: '6rem',
+    paddingLeft: '1.71em',
     margin: '0',
 
     '&::after': {
       content: '""',
-      height: '5rem',
-      width: '4.3rem',
+      height: '1.42em',
+      width: '1.22em',
       position: 'absolute',
       top: '50%',
       left: '0',
@@ -22,6 +23,10 @@ const Wrapper = styled.div({
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'contain',
       backgroundImage: 'url("./images/philip-rurka-logo.png")',
+    },
+
+    [breakPoints.breakPointMD]: {
+      fontSize: '3.5rem'
     }
   },
 

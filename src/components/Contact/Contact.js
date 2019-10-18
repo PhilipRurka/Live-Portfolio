@@ -81,10 +81,10 @@ const Wrapper = styled.div({
 
 const email = <a href="mailto:hey@philiprurka.com">hey@<strong>philiprurka.com</strong></a>
 
-const Contact = () => {
+const Contact = ({ className }) => {
 
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <ul>
         <li />
         <li>
