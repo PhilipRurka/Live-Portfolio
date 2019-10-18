@@ -20,6 +20,23 @@ const Wrapper = styled.div({
 
     '& + li': {
       marginLeft: '10px'
+    },
+
+    '& > a': {
+      letterSpacing: '0.5px',
+      color: COLORS.red,
+      textDecoration: 'none',
+      ...navTransition,
+  
+      '&:hover + a': { width: '100%' },
+  
+      '& + a': {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        color: COLORS.purple,
+        pointerEvents: 'none'
+      }
     }
   },
 
@@ -46,7 +63,15 @@ const Wrapper = styled.div({
         height: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        pointerEvents: 'none',
         ...navTransition
+      },
+
+      'a': {
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        outline: 'none'
       }
     }
   },
@@ -59,23 +84,6 @@ const Wrapper = styled.div({
   '.linkedIn .icon': {
     backgroundImage: 'url("./images/linkedin-red.svg")',
     '&::after': { backgroundImage: 'url("./images/linkedin-purple.svg")' }
-  },
-
-  'a': {
-    letterSpacing: '0.5px',
-    color: COLORS.red,
-    textDecoration: 'none',
-    ...navTransition,
-
-    '&:hover + a': { width: '100%' },
-
-    '& + a': {
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      color: COLORS.purple,
-      pointerEvents: 'none'
-    }
   }
 });
 
@@ -92,10 +100,14 @@ const Contact = ({ className }) => {
           {email}
         </li>
         <li className='github'>
-          <div className="icon" />
+          <div className="icon">
+            <a href="https://github.com/PhilipRurka" target='_blank' />
+          </div>
         </li>
         <li className='linkedIn'>
-          <div className="icon" />
+          <div className="icon">
+            <a href="https://www.linkedin.com/in/philip-rurka-447194127/" target='_blank' />
+          </div>
         </li>
       </ul>
     </Wrapper>
