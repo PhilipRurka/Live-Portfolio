@@ -6,7 +6,7 @@ import GeneralDescription from '../GeneralDescription';
   const LandingPageSection = styled.div({
     display: 'inline-block',
     verticalAlign: 'top',
-    padding: '0',
+    padding: '0'
   });
 
   const LandingPage = () => {

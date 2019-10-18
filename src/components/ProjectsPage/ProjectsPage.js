@@ -1,19 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import Projects from '../Projects';
 
-class ProjectsPage extends React.Component {
+const ProjectsPage = () => {
 
-  Wrapper = styled.div({});
-
-  render() {
-    const { Wrapper } = this;
-
-    return (
-      <Wrapper>
-
-      </Wrapper>
-    );
-  };
+  return (
+    < >
+      <Projects />
+    </ >
+  );
 };
 
 export default ProjectsPage;
