@@ -1,0 +1,133 @@
+import React from 'react';
+import styled from '@emotion/styled/macro';
+import { COLORS } from '../../helpers/colors';
+import { navTransition } from '../../helpers/general';
+
+const Wrapper = styled.div({
+    
+  'ul': {
+    listStyle: 'none',
+    margin: '0',
+    height: '100%'
+  },
+  
+  'li': {
+    position: 'relative',
+    display: 'inline-block',
+    verticalAlign: 'middle',
+
+    '&:first-of-type': { height: '100%' },
+
+    '& + li': {
+      marginLeft: '10px'
+    },
+
+    '& > a': {
+      letterSpacing: '0.5px',
+      color: COLORS.red,
+      textDecoration: 'none',
+      ...navTransition,
+  
+      '&:hover + a': { width: '100%' },
+  
+      '& + a': {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        color: COLORS.purple,
+        pointerEvents: 'none'
+      }
+    }
+  },
+
+  '.github, .linkedIn': {
+    position: 'relative',
+    height: '2rem',
+    width: '2rem',
+
+    '.icon': {
+      position: 'relative',
+      height: '100%',
+      width: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'contain',
+      cursor: 'pointer',
+
+      '&:hover::after': { width: '100%' },
+
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        height: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        pointerEvents: 'none',
+        ...navTransition
+      },
+
+      'a': {
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        outline: 'none'
+      }
+    }
+  },
+
+  '.github .icon': {
+    backgroundImage: 'url("./images/github-red.svg")',
+    '&::after': { backgroundImage: 'url("./images/github-purple.svg")' }
+  },
+  
+  '.linkedIn .icon': {
+    backgroundImage: 'url("./images/linkedin-red.svg")',
+    '&::after': { backgroundImage: 'url("./images/linkedin-purple.svg")' }
+  }
+});
+
+const email = (
+  <a
+    title='LinkedIn Icon'
+    href="mailto:hey@philiprurka.com"
+    >hey@<strong>philiprurka.com</strong>
+  </a>
+);
+
+const Contact = ({ className }) => {
+
+  return (
+    <Wrapper className={className}>
+      <ul>
+        <li />
+        <li>
+          {email}
+          {email}
+        </li>
+        <li className='github'>
+          <div className="icon">
+            <a
+              title='Github Icon'
+              href='https://github.com/PhilipRurka'
+              target='_blank'
+              rel='noopener noreferrer'
+              />
+          </div>
+        </li>
+        <li className='linkedIn'>
+          <div className="icon">
+            <a
+              title='LinkedIn Icon'
+              href="https://www.linkedin.com/in/philip-rurka-447194127/"
+              target='_blank'
+              rel='noopener noreferrer'
+              />
+          </div>
+        </li>
+      </ul>
+    </Wrapper>
+  );
+};
+
+export default Contact;
