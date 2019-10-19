@@ -51,7 +51,7 @@ class Navbar extends React.Component {
 
   goToPage = (location) => {
     const { props: { history } } = this;
-    history.push(location);
+    history.push(process.env.PUBLIC_URL + location);
   };
 
   render() {
