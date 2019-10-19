@@ -87,7 +87,13 @@ const Wrapper = styled.div({
   }
 });
 
-const email = <a href="mailto:hey@philiprurka.com">hey@<strong>philiprurka.com</strong></a>
+const email = (
+  <a
+    title='LinkedIn Icon'
+    href="mailto:hey@philiprurka.com"
+    >hey@<strong>philiprurka.com</strong>
+  </a>
+);
 
 const Contact = ({ className }) => {
 
@@ -101,12 +107,22 @@ const Contact = ({ className }) => {
         </li>
         <li className='github'>
           <div className="icon">
-            <a href="https://github.com/PhilipRurka" target='_blank' />
+            <a
+              title='Github Icon'
+              href='https://github.com/PhilipRurka'
+              target='_blank'
+              rel='noopener noreferrer'
+              />
           </div>
         </li>
         <li className='linkedIn'>
           <div className="icon">
-            <a href="https://www.linkedin.com/in/philip-rurka-447194127/" target='_blank' />
+            <a
+              title='LinkedIn Icon'
+              href="https://www.linkedin.com/in/philip-rurka-447194127/"
+              target='_blank'
+              rel='noopener noreferrer'
+              />
           </div>
         </li>
       </ul>

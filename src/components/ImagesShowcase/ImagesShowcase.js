@@ -12,6 +12,12 @@ class ImagesShowcase extends React.Component {
     fadeIn: true
   };
 
+  timer = {
+    one: null,
+    two: null,
+    three: null
+  };
+
   ImageContainer = styled.div({
     position: 'relative',
     paddingBottom: '100%',
@@ -25,7 +31,6 @@ class ImagesShowcase extends React.Component {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    opacity: '0',
     opacity: addedOpacity,
     transition: 'opacity 1s ease',
     backgroundSize: 'cover',
@@ -35,24 +40,32 @@ class ImagesShowcase extends React.Component {
   }});
 
   componentDidMount() {
-    const { animationLogic } = this;
+    const { animationLogic, timer } = this;
     animationLogic();
-    setInterval(() => {
+    timer.one = setInterval(() => {
       animationLogic();
     }, 5100);
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.timer.one)
+    clearTimeout(this.timer.two);
+    clearTimeout(this.timer.three);
   };
 
   animationLogic = () => {
     const newNumber = (this.state.imageNumber !== 2)
       ? (this.state.imageNumber + 1) : 0;
 
+    const { timer } = this;
+
     this.setState({ fadeIn: true })
 
-    setTimeout(() => {
+    timer.two = setTimeout(() => {
       this.setState({ fadeIn: false })
     }, 4000);
 
-    setTimeout(() => {
+    timer.three = setTimeout(() => {
       this.setState({ imageNumber: newNumber });
     }, 5000);
   };

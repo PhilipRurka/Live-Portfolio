@@ -164,6 +164,7 @@ const Projects = () => {
                 <a
                   href={link}
                   target='_blank'
+                  rel='noopener noreferrer'
                 >Check It!</a>
               </button>
             </CheckIt>
