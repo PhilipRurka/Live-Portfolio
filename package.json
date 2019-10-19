@@ -1,8 +1,8 @@
 {
-  "name": "validation",
+  "name": "live-portfolio-v3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://philiprurka.github.io/IoTplace-V2/",
+  "homepage": "https://philiprurka.github.io/Live-Portfolio-v3/",
   "dependencies": {
     "@babel/core": "^7.6.2",
     "@emotion/core": "^10.0.20",
