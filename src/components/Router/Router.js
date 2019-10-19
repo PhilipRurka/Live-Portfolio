@@ -8,7 +8,7 @@ import {
 import Pages from '../Pages';
 
 const routeOptions = {
-  landingPage: '/',
+  landingPage: `${process.env.PUBLIC_URL}/`,
   projectsPage: '/projects'
 };
 
