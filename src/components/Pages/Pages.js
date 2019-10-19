@@ -25,10 +25,10 @@ class Pages extends React.Component {
     const { Wrapper, props: { page } } = this;
 
     let chosenPage;
-
-    if(page === '/') {
+    
+    if(page === `${process.env.PUBLIC_URL}/`) {
       chosenPage = <LandingPage />
-    } else if(page === '/projects') {
+    } else if(page === `${process.env.PUBLIC_URL}/projects`) {
       chosenPage = <ProjectsPage />
     };
 

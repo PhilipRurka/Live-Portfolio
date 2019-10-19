@@ -9,7 +9,7 @@ import Pages from '../Pages';
 
 const routeOptions = {
   landingPage: `${process.env.PUBLIC_URL}/`,
-  projectsPage: '/projects'
+  projectsPage: `${process.env.PUBLIC_URL}/projects`
 };
 
 const Router = () => {
