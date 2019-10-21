@@ -2,7 +2,6 @@
   "name": "live-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://philiprurka.github.io/Live-Portfolio/",
   "dependencies": {
     "@babel/core": "^7.6.2",
     "@emotion/core": "^10.0.20",
