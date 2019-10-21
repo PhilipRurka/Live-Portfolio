@@ -7,7 +7,7 @@ const GlobalWrapper = styled.div({});
 
 const App = () => (
   <GlobalWrapper>
-    <h1>HelloWorld!</h1>
+    <h1>HelloWorld!!!</h1>
     <Header />    
     <Router />
   </GlobalWrapper>
