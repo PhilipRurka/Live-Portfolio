@@ -1,0 +1,80 @@
+TODO.
+  - Add a Toast in the upper right for all actions.
+  - Add the ability to Edit. The spects are the following:
+    - When an entry gets selected for editing, highlight that entry, then       populate the form with the entry's data. Make the Form Section's color    match the entry highlighted color and replace the "Form Section" with     "Editing Section". Change the Submit button to Edit and add a new         button that cancels the editing state and returns everything back to where it was.
+  - Remove Code Dept.
+  - Add css animations to adding, removing, editing, ...
+
+--------------------------
+SET & INIT LocalStorage
+
+I wanted to make it so when the entries store on Local Storage and populates the App on App Init.
+ 
+I began by adding the LocalStorage Logic in my Reducer, however, I soon realized that if I wanted to make this able to do much more then just store and update. Perhaps I could update the LocalStorage on Edit/Remove. Thats when I realized that my Stateless Component "Display" had to be a Class Component because it needed a life cycle. With a lif cycle, I can now enable the componentDidUpdate, which would update my LocalStorage and componentDidMount for populating the Display Section on the App Init.
+
+Nope Scratch that, I can't have LocalStorage Init thing on the Display's componentDidMount. because when it mounts, it will update, however, the react-redux's store won't be updated. I need to create a new reducer if statement to handle this.
+
+Turning the Class Component back into a Stateless Component.
+--------------------------
+
+
+
+
+
+
+// import React, { useState } from "react";
+// import { jsx, css } from "@emotion/core";
+// import styled from "@emotion/styled";
+
+// export default function Box() {
+//   const [height, setHeight] = useState(0);
+
+//   // const SomeElement = styled.div'';
+
+//   // const SomeElement = styled.div({
+
+//   // });
+
+//   const Box = styled.div({
+//     backgroundColor: "purple",
+//     height,
+//     transition: "height 0.9s"
+//   });
+
+//   const boxStyle = ({ height, color: backgroundColor }) => {
+//     debugger;
+//     return {
+//       backgroundColor,
+//       height,
+//       transition: "height 0.9s"
+//     };
+//   };
+
+//   return (
+//     <>
+//       <button
+//         onClick={() => {
+//           console.log("test");
+//           setHeight(height + 100);
+//         }}
+//       >
+//         Press Me!
+//       </button>
+//       <div
+//         style={{
+//           backgroundColor: "red",
+//           height,
+//           transition: "height 0.9s"
+//         }}
+//       />
+//       <div
+//         height={height}
+//         css={css`
+//           ${boxStyle({ height, color: "blue" })}
+//         `}
+//       />
+//       <div css={boxStyle({ height, color: "orange" })} />
+//       {/* <Box /> */}
+//     </>
+//   );
+// }

@@ -1,8 +1,7 @@
 {
-  "name": "validation",
+  "name": "live-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://philiprurka.github.io/IoTplace-V2/",
   "dependencies": {
     "@babel/core": "^7.6.2",
     "@emotion/core": "^10.0.20",
@@ -16,7 +15,6 @@
     "react-app-polyfill": "^1.0.4",
     "react-dom": "^16.10.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "uuid": "^3.3.3"
   },
@@ -63,6 +61,7 @@
     "babel-plugin-emotion": "^10.0.20",
     "gh-pages": "^2.1.1",
     "react-redux": "^7.1.1",
+    "react-scripts": "^3.2.0",
     "redux-devtools": "^3.5.0",
     "redux-thunk": "^2.3.0"
   }

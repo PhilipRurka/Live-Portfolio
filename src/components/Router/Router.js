@@ -8,8 +8,8 @@ import {
 import Pages from '../Pages';
 
 const routeOptions = {
-  landingPage: '/',
-  projectsPage: '/projects'
+  landingPage: `${process.env.PUBLIC_URL}/`,
+  projectsPage: `${process.env.PUBLIC_URL}/projects`
 };
 
 const Router = () => {
