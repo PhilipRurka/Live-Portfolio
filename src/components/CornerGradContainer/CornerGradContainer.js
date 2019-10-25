@@ -7,128 +7,155 @@ const width = '3px';
 const GradWrapper = styled.div(({ corner, color }) => {
 
   let selectedColor;
-  let addedStyles;
   let shared;
+  let corners = [];
 
-  if(color === 'red') {
-    selectedColor = COLORS.red
-  } else if(color === 'purple') {
-    selectedColor = COLORS.purple
-  } else if(color === 'green') {
-    selectedColor = COLORS.green
-  };
+  Object.keys(corner).map((position, i) => {
+    const hasMultiple = Object.keys(corner).length > 1;
 
-  if(corner === 'topLeft') {
-    shared = {
-      top: '0',
-      left: '0'
-    };
-    
-    addedStyles = {
-      '&::before': {
-        ...shared,
-        bottom: '0',
-        width,
-        background: `linear-gradient(${selectedColor}, transparent)`
-      },
-    
-      '&::after': {
-        ...shared,
-        right: '0',
-        height: width,
-        background: `linear-gradient(to right, ${selectedColor}, transparent)`
-      }
-    };
-    
-  } else if(corner === 'topRight') {
-    shared = {
-      top: '0',
-      right: '0'
-    };
+    const color = corner[position];
 
-    addedStyles = {
-      '&::before': {
-        ...shared,
-        bottom: '0',
-        width,
-        background: `linear-gradient(${selectedColor}, transparent)`
-      },
-    
-      '&::after': {
-        ...shared,
-        left: '0',
-        height: width,
-        background: `linear-gradient(to right, transparent, ${selectedColor})`
-      }
+    if(color === 'red') {
+      selectedColor = COLORS.red
+    } else if(color === 'purple') {
+      selectedColor = COLORS.purple
+    } else if(color === 'green') {
+      selectedColor = COLORS.green
     };
-
-  } else if(corner === 'bottomLeft') {
-    shared = {
-      bottom: '0',
-      left: '0'
-    };
-
-    addedStyles = {
-      '&::before': {
-        ...shared,
+  
+    if(position === 'topLeft') {
+      shared = {
         top: '0',
-        width,
-        background: `linear-gradient(transparent, ${selectedColor})`
-      },
-
-      '&::after': {
-        ...shared,
-        right: '0',
-        height: width,
-        background: `linear-gradient(to right, ${selectedColor}, transparent)`
-      }
+        left: '0'
+      };
+      
+      corners[i] = {
+        '&::before': {
+          ...shared,
+          bottom: (hasMultiple === 'half') ? '0': '50%',
+          width,
+          background: `linear-gradient(${selectedColor}, transparent)`
+        },
+      
+        '&::after': {
+          ...shared,
+          right: '0',
+          height: width,
+          background: `linear-gradient(to right, ${selectedColor}, transparent)`
+        }
+      };
     };
-
-  } else if(corner === 'bottomRight') {
-    shared = {
-      bottom: '0',
+    
+    if(position === 'topRight') {
+      shared = {
+        top: '0',
         right: '0'
+      };
+  
+      corners[i] = {
+        '&::before': {
+          ...shared,
+          bottom: (hasMultiple === 'half') ? '0': '50%',
+          width,
+          background: `linear-gradient(${selectedColor}, transparent)`
+        },
+      
+        '&::after': {
+          ...shared,
+          left: '0',
+          height: width,
+          background: `linear-gradient(to right, transparent, ${selectedColor})`
+        }
+      };
     };
-
-    addedStyles = {    
-      '&::before': {
-        ...shared,
-        top: '0',
-        width,
-        background: `linear-gradient(transparent, ${selectedColor})`
-      },
     
-      '&::after': {
-        ...shared,
-        left: '0',
-        height: width,
-        background: `linear-gradient(to right, transparent, ${selectedColor})`
-      }
+    if(position === 'bottomLeft') {
+      shared = {
+        bottom: '0',
+        left: '0'
+      };
+  
+      corners[i] = {
+        '&::before': {
+          ...shared,
+          top: (hasMultiple === 'half') ? '0': '50%',
+          width,
+          background: `linear-gradient(transparent, ${selectedColor})`
+        },
+  
+        '&::after': {
+          ...shared,
+          right: '0',
+          height: width,
+          background: `linear-gradient(to right, ${selectedColor}, transparent)`
+        }
+      };
     };
+    
+    if(position === 'bottomRight') {
+      shared = {
+        bottom: '0',
+        right: '0'
+      };
+  
+      corners[i] = {    
+        '&::before': {
+          ...shared,
+          top: (hasMultiple === 'half') ? '0': '50%',
+          width,
+          background: `linear-gradient(transparent, ${selectedColor})`
+        },
+      
+        '&::after': {
+          ...shared,
+          left: '0',
+          height: width,
+          background: `linear-gradient(to right, transparent, ${selectedColor})`
+        }
+      };
+    };
+  });
+
+  const secondCorner = (corners[1] === undefined) ? null : {
+    '& > .secondCorner': {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      paddingBottom: 'calc(100% + 3em)',
+      width: '100%',
+      pointerEvents: 'none',
+      ...corners[1],
+      
+      '&::before, &::after': {
+        content: '""',
+        position: 'absolute'
+      }
+    }
   };
 
   return {
     position: 'relative',
     height: 'auto',
     width: '100%',
-    padding: '1rem',
-    ...addedStyles,
+    padding: '1.5rem',
+    ...corners[0],
+    ...secondCorner,
 
     '&::before, &::after': {
       content: '""',
       position: 'absolute'
     }
-  };
+  }
 });
 
-const CornerGradContainer = ({ children, corner, color }) => {
+const CornerGradContainer = ({ children, corner }) => {
 
   return (
     <GradWrapper
       corner={corner}
-      color={color}
     >
       {children}
+      <div className='secondCorner' />
     </GradWrapper>
   );
 };

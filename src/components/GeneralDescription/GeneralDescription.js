@@ -4,6 +4,29 @@ import GradContainer from '../CornerGradContainer';
 import { breakPoints } from '../../helpers/breakPoints';
 import { COLORS } from '../../helpers/colors';
 
+let ItemNumber = 1;
+
+// Simple Questions & Answers
+// For more in depth Questions & Answers, please navigate to ________.
+const contentArray = [
+  {
+    span: 'Who are you?',
+    paragraph: 'A self taught Front-End Developer who absolutely loves developing. Especially with a hard working and passionate team!'
+  },
+  {
+    span: 'Proficiencies?',
+    paragraph: 'Yes, several actually! I am proficient in Html, Pug, Css, Sass, Javascript, Angular 1 and now working towards becoming a React Guru!'
+  },
+  {
+    span: 'Why do you do what you do?',
+    paragraph: 'My ultimate goal is to better others quality of life. Whether its by _____ or simply by the encounters and relationships built.'
+  },
+  {
+    span: 'What’s a normal day?',
+    paragraph: 'Aside from building applications, websites, dashboards, emails and email signatures. I absolutely enjoy working on personal projects, gaining additional knowledge, going on adventures, Parkour, video capturing, video editing and creating art.'
+  }
+];
+
 const Container = styled.div({
   position: 'relative',
   paddingBottom: '100% !important',
@@ -18,14 +41,19 @@ const Content = styled.div({
   overflowY: 'scroll',
   margin: '2rem 0',
 
-  'label': {
+  'div + .descriptionItem': {
+    marginTop: '1.5em'
+  },
+
+  'span': {
     fontSize: '1.75rem',
     '&.purple': { color: COLORS.purple },
     '&.green': { color: COLORS.green },
+    '&.red': { color: COLORS.red },
   },
 
   'p': {
-    lineHeight: '2em',
+    lineHeight: '1.5em',
     margin: '0',
     fontSize: '1rem',
     textAlign: 'justify',
@@ -44,18 +72,30 @@ const GeneralDescription = () => {
       <Container>
         <Content>
           <GradContainer
-            corner='topLeft'
-            color='green'
+            corner={{ topLeft: 'green', bottomRight: 'purple' }} 
             >
-            <label className='purple'>Hello World!</label>
-            <p>I was on my way to becoming a licensed red seal carpenter with three out of the four blocks required to complete the college program. On december of 2016, I had gotten laid off for the winter due to shortage of work. Considering that I never was very good at standing still for too long, I took my brothers advice and jumped into a basic tutorial video on HTML. I ended up taking 10 months off of everything and dedicated all of my time to learning HTML, CSS and Javascript. Since the day I began learning about “Hello World” of Front-End, I’ve been madly passionate and can’t seem to satisfy my hunger for more. If I am not outside being active, I am inside working on the latest features for a client, personal projects, learning and/or finding ways to improve my quality of life. A healthy life means I can keep pushing forward, doing the things I love to do such as bringing beautiful designs to life and solving complex problems with simple solutions.</p>
-          </GradContainer>
-          <GradContainer
-            corner='bottomRight'
-            color='purple'
-            >
-            <label className='green'>Where am I?</label>
-            <p>After 10 months of intense learning, Simptek offered me a one month unpaid internship. To be honest, I didn’t get much sleep during those days considering there were some frameworks that needed to be learned (Angular.js). Failure wasn't and still isn’t an option. I always do whatever it takes to get the job done. After the internship, I had become a fulltime employee. I have been working at SimpTek for a year and a half now (October 2end will be my two year anniversary). Hands down, one the best teams I got to work with. I am grateful that it's a startup, what better way is there to learn how to work in a fast paced environment, work closely with other departments as well as adapt to new scope changes and adjustments with ease.</p>
+            {contentArray.map((item) => {
+              const { span, paragraph } = item;
+              let color;
+    
+              if(ItemNumber === 1) {
+                color = 'red';
+              } else if(ItemNumber === 2) {
+                color = 'purple';
+              } else if(ItemNumber === 3) {
+                color = 'green';
+                ItemNumber = 0;
+              };
+    
+              ItemNumber += 1;
+
+              return (
+                <div key={item.span} className='descriptionItem'>
+                  <span className={color}>{span}</span>
+                  <p>{paragraph}</p>
+                </div>
+              );
+            })}
           </GradContainer>
         </Content>
       </Container>
