@@ -47,6 +47,9 @@ const Content = styled.div({
 
   'span': {
     fontSize: '1.75rem',
+    lineHeight: '1em',
+    marginBottom: '5px',
+    display: 'inline-block',
     '&.purple': { color: COLORS.purple },
     '&.green': { color: COLORS.green },
     '&.red': { color: COLORS.red },

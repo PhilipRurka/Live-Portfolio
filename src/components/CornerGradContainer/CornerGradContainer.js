@@ -121,7 +121,7 @@ const GradWrapper = styled.div(({ corner, color }) => {
       position: 'absolute',
       top: '0',
       left: '0',
-      paddingBottom: 'calc(100% + 3em)',
+      height: '100%',
       width: '100%',
       pointerEvents: 'none',
       ...corners[1],
