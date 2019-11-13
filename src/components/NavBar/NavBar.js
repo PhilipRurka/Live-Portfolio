@@ -13,6 +13,8 @@ import {
   QUESTIONS_AND_ANSWERS_PAGES
 } from '../../helpers/constants';
 
+const height = '32px';
+
 class Navbar extends React.Component {
 
   Wrapper = styled.div({
@@ -51,29 +53,17 @@ class Navbar extends React.Component {
 
       '.menuLabel': {
         position: 'relative',
-        height: '40px',
-        height: '32px',
+        height,
         width: '88px',
         
-        '&, *': {
-          cursor: 'pointer',
-        },
+        '&, *': { cursor: 'pointer' },
+        '&:hover .hovered': { width: '100%' },
 
-        '&:hover .hovered': {
-          width: '100%',
-          paddingLeft: '30px'
-        },
-
-        '& > label': {
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          zIndex: '0',
+        'label': {
+          height: '32px',
+          margin: '0',
           paddingTop: '6px',
           paddingLeft: '50px',
-          margin: '0',
-          color: COLORS.red,
-          height: '32px',
           overflow: 'hidden',
 
           '&::before': {
@@ -88,7 +78,21 @@ class Navbar extends React.Component {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain',
-            backgroundImage: 'url("./images/hamburger-red.svg")',
+          }
+        },
+
+        'label:not(.hidden)': {
+          position: 'absolute',
+          top: '0',
+          left: '0',
+        },
+
+        '& > label': {
+          zIndex: '0',
+          color: COLORS.red,
+
+          '&::before': {
+            backgroundImage: 'url("./images/hamburger-red.svg")'
           },
         },
 
@@ -105,51 +109,13 @@ class Navbar extends React.Component {
             zIndex: '-1',
             opacity: '0',
             width: 'initial',
-            paddingTop: '6px',
-            paddingLeft: '50px',
-            height: '32px',
-            overflow: 'hidden',
-
-            '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: '50%',
-              left: '0',
-              transform: 'translateY(-50%)',
-              zIndex: '0',
-              height: '38px',
-              width: '38px',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-              backgroundImage: 'url("./images/hamburger-red.svg")',
-            },
           },
 
           'label + label': {
-            position: 'absolute',
-            top: '0',
-            left: '0',
             color: COLORS.purple,
-            margin: '0',
-            paddingTop: '6px',
-            paddingLeft: '50px',
-            height: '32px',
-            overflow: 'hidden',
   
             '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: '50%',
-              left: '0',
-              transform: 'translateY(-50%)',
-              zIndex: '0',
-              height: '38px',
-              width: '38px',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-              backgroundImage: 'url("./images/hamburger-purple.svg")',
+              backgroundImage: 'url("./images/hamburger-purple.svg")'
             },
           }
         }
