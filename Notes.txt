@@ -18,7 +18,9 @@ Turning the Class Component back into a Stateless Component.
 --------------------------
 
 
-
+PORTFOLIO SITE.
+Create a Link Component
+Create a Label Component for the page titles
 
 
 

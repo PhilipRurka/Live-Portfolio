@@ -3,8 +3,6 @@ import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
 import { navTransition } from '../../helpers/general';
 
-  
-
 const Content = styled.div(({ triggeredLocation, currentLocation }) => {
   let psudoStyle;
   let addedStyle;
@@ -30,7 +28,7 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
       height: '0.3rem',
       backgroundColor: COLORS.green,
       width: '0',
-      ...navTransition,
+      ...navTransition(),
       ...psudoStyle
     },
 
@@ -45,6 +43,7 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
 
     'label': {
       position: 'relative',
+      top: '3px',
       margin: '0',
       color: COLORS.red,
       letterSpacing: '1px',
@@ -54,12 +53,16 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
         width: '100%'
       },
 
+      '&, &::before, &::after': {
+        whiteSpace: 'nowrap'
+      },
+
       '&::before, &::after': {
         content: 'attr(title)',
         position: 'absolute',
         top: '0',
         left: '0',
-        ...navTransition
+        ...navTransition()
       },
 
       '&::before': {

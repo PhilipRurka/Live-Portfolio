@@ -151,7 +151,7 @@ const GradWrapper = styled.div(({ corner, color }) => {
 const CornerGradContainer = ({ children, corner }) => {
 
   return (
-    <GradWrapper
+    <GradWrapper className='gradWrapper'
       corner={corner}
     >
       {children}

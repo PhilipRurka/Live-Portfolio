@@ -2,7 +2,7 @@ import {
   UPDATE_CURRENT_LOCATION,
   UPDATE_HISTORY,
   UPDATE_LOCATION
-} from './constants';
+} from '../helpers/constants';
 
 const initialState = {
   currentLocation: '',

@@ -1,9 +1,5 @@
 import NavBar from './NavBar';
 import { connect } from 'react-redux';
-import {
-  updateCurrentLocation,
-  updateLocation
-} from '../../redux/actions';
 
 const mapToStateToProps = ({
   currentLocation,
@@ -13,12 +9,6 @@ const mapToStateToProps = ({
   history
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  updateCurrentLocation: (payload) => dispatch(updateCurrentLocation(payload)),
-  updateLocation: (payload) => dispatch(updateLocation(payload))
-});
-
 export default connect(
-  mapToStateToProps,
-  mapDispatchToProps
+  mapToStateToProps
 ) (NavBar);

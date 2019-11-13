@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import GradContainer from '../CornerGradContainer';
+import CornerGradContainer from '../CornerGradContainer';
 import { breakPoints } from '../../helpers/breakPoints';
 import { COLORS } from '../../helpers/colors';
+import { navTransition } from '../../helpers/general';
 
 let ItemNumber = 1;
 
@@ -19,7 +20,7 @@ const contentArray = [
   },
   {
     span: 'Why do you do what you do?',
-    paragraph: 'My ultimate goal is to better others quality of life. Whether its by _____ or simply by the encounters and relationships built.'
+    paragraph: 'My ultimate goal is to help increase the quality of life of others. Whether its by sharing knowledge/experiences or simply by the encounters and relationships we build built.'
   },
   {
     span: 'What’s a normal day?',
@@ -41,46 +42,101 @@ const Content = styled.div({
   overflowY: 'scroll',
   margin: '2rem 0',
 
+  [breakPoints.breakPointLG]: {
+    paddingLeft: '50px',
+    margin: '0'
+  },
+
   'div + .descriptionItem': {
     marginTop: '1.5em'
   },
 
-  'span': {
-    fontSize: '1.75rem',
-    lineHeight: '1em',
-    marginBottom: '5px',
-    display: 'inline-block',
-    '&.purple': { color: COLORS.purple },
-    '&.green': { color: COLORS.green },
-    '&.red': { color: COLORS.red },
+  '.gradWrapper': {
+    '& > label': {
+      fontSize: '2.3rem',
+      lineHeight: '1em',
+      fontWeight: '600'
+    },
+
+    '& > p': {
+      margin: '0 0 30px',
+
+      'a': {
+        position: 'relative',
+        display: 'inline-block',
+        textDecoration: 'none',
+        outline: 'none',
+    
+        '&, &:active': {
+          color: COLORS.red,
+        },
+    
+        '&:hover::after': {
+          width: '100%'
+        },
+    
+        '&, &::after': {
+          whiteSpace: 'nowrap',
+          cursor: 'pointer'
+        },
+    
+        '&::after': {
+          content: 'attr(title)',
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          color: COLORS.purple,
+          ...navTransition()
+        },
+      }
+    }
   },
 
-  'p': {
-    lineHeight: '1.5em',
-    margin: '0',
-    fontSize: '1rem',
-    textAlign: 'justify',
-    textJustify: 'inter-word'
-  },
+  '.descriptionItem': {
 
-  [breakPoints.breakPointLG]: {
-    paddingLeft: '50px',
-    margin: '0'
+    'span': {
+      fontSize: '1.75rem',
+      lineHeight: '1em',
+      marginBottom: '5px',
+      display: 'inline-block',
+      '&.purple': { color: COLORS.purple },
+      '&.green': { color: COLORS.green },
+      '&.red': { color: COLORS.red },
+    },
+  
+    'p': {
+      lineHeight: '1.5em',
+      margin: '0',
+      fontSize: '1rem',
+      textAlign: 'justify'
+    }
   }
 });
 
-const GeneralDescription = () => {
+const goToPage = (location, history) => {
+  history.push(process.env.PUBLIC_URL + location);
+};
+
+const GeneralDescription = ({ history }) => {
   return (
     < >
       <Container>
         <Content>
-          <GradContainer
+          <CornerGradContainer
             corner={{ topLeft: 'green', bottomRight: 'purple' }} 
             >
+            <label>Simple Questions <br /> & Answers</label>
+            <p>For a more in depth Questions & Answers, please navigate to&nbsp;
+              <a
+                title='Q&A'
+                onClick={() => ( goToPage('/q-and-a', history) )} >
+                Q&A
+              </a>
+            .</p>
             {contentArray.map((item) => {
               const { span, paragraph } = item;
               let color;
-    
+  
               if(ItemNumber === 1) {
                 color = 'red';
               } else if(ItemNumber === 2) {
@@ -99,7 +155,7 @@ const GeneralDescription = () => {
                 </div>
               );
             })}
-          </GradContainer>
+          </CornerGradContainer>
         </Content>
       </Container>
     </ >
