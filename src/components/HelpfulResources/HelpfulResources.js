@@ -32,10 +32,7 @@ const HelpfulResources = () => {
         </p>
         <span>Development Goods</span>
         <p>
-        <Anchors
-          title='GitKraken'
-          href="https://www.gitkraken.com/" >
-        </Anchors>
+        <Anchors title='GitKraken' href="https://www.gitkraken.com/" />
         &nbsp;is a beautiful and concise app that makes github action easy. They neatly show your GitHub repositories branches and how they behave.
         </p>
       </Intro>

@@ -47,6 +47,7 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
       margin: '0',
       color: COLORS.red,
       letterSpacing: '1px',
+      userSelect: 'none',
       ...addedStyle,
 
       '&:hover::after': {

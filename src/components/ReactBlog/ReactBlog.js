@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import CornerGradContainer from '../CornerGradContainer';
 import { COLORS } from '../../helpers/colors';
-import { navTransition, sharedTags } from '../../helpers/general';
+import Anchors from '../Anchors';
 
 const ReactBlogWrapper = styled.div({
   'label': {
@@ -20,35 +20,6 @@ const ReactBlogWrapper = styled.div({
     lineHeight: '1.5em',
     margin: '0',
     fontSize: '1rem',
-  },
-  
-  'a': {
-    position: 'relative',
-    display: 'inline-block',
-    textDecoration: 'none',
-    outline: 'none',
-
-    '&, &:active': {
-      color: COLORS.red,
-    },
-
-    '&:hover::after': {
-      width: '100%'
-    },
-
-    '&, &::after': {
-      whiteSpace: 'nowrap',
-      cursor: 'pointer'
-    },
-
-    '&::after': {
-      content: 'attr(title)',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      color: COLORS.purple,
-      ...navTransition()
-    },
   }
 })
 
@@ -64,69 +35,45 @@ const ReactBlog = () => {
           <p>
             <span>Log 1:&nbsp;</span>
             I kept hearing about you through friends, articles and the&nbsp;
-            <a
+            <Anchors
               title="Stackoverflow's 2018 Developer Survey Results"
-              href="https://insights.stackoverflow.com/survey/2018"
-              {...sharedTags} >
-              Stackoverflow's 2018 Developer Survey Results
-            </a>
+              href="https://insights.stackoverflow.com/survey/2018" />
             . I think it’s time I give it a try and see what all of this hype is about!
             <br/> <br/>
 
             <span>Log 2:&nbsp;</span>
             First I began with&nbsp;
-            <a
+            <Anchors
               title="Wes Bos"
-              href="https://wesbos.com/"
-              {...sharedTags} >
-              Wes Bos
-            </a>
+              href="https://wesbos.com/" />
             ’s course called&nbsp;
-            <a
+            <Anchors
               title="React For Beginners"
-              href='https://reactforbeginners.com/'
-              {...sharedTags} >
-              React For Beginners
-            </a>
+              href='https://reactforbeginners.com/' />
             . Before I go any further, I have to say that this Wes Bos guy really sounds familiar, I have heard him before!
             <br/> <br/>
 
             <span>Log 3:&nbsp;</span>
             I am really enjoying these new concepts such as&nbsp;
-            <a
+            <Anchors
               title="Components"
-              href='https://reactjs.org/docs/react-component.html'
-              {...sharedTags} >
-              Components
-            </a>
+              href='https://reactjs.org/docs/react-component.html' />
             ,&nbsp;
-            <a
+            <Anchors
               title="Props"
-              href='https://reactjs.org/docs/components-and-props.html'
-              {...sharedTags} >
-              Props
-            </a>
+              href='https://reactjs.org/docs/components-and-props.html' />
             ,&nbsp;
-            <a
+            <Anchors
               title="State"
-              href='https://reactjs.org/docs/faq-state.html'
-              {...sharedTags} >
-              State
-            </a>
+              href='https://reactjs.org/docs/faq-state.html' />
             ,&nbsp;
-            <a
+            <Anchors
               title="Lifecycle"
-              href='https://reactjs.org/docs/state-and-lifecycle.html'
-              {...sharedTags} >
-              Lifecycle
-            </a>
+              href='https://reactjs.org/docs/state-and-lifecycle.html' />
             ,&nbsp;
-            <a
+            <Anchors
               title="..."
-              href='https://reactjs.org/docs/getting-started.html'
-              {...sharedTags} >
-              ...
-            </a>
+              href='https://reactjs.org/docs/getting-started.html' />
             &nbsp;I am beginning to understand its value.
             <br/> <br/>
 
@@ -136,116 +83,77 @@ const ReactBlog = () => {
 
             <span>Log 5:&nbsp;</span>
             I spoke to Kolton today, a great friend/mentor of mine, about what I have been learning! He informed me on this beautiful concept called&nbsp; 
-            <a
+            <Anchors
               title="Context"
-              href='https://reactjs.org/docs/context.html'
-              {...sharedTags} >
-              Context
-            </a>
+              href='https://reactjs.org/docs/context.html' />
             . This is a much easier way to pass down props to a multi level down component. Also, he made my day by revealing his secret on how to style components with ease and clarity. His secret was ...
             <br/> <br/>
 
             <span>Log 6:&nbsp;</span>
             I am sorry to keep you waiting on this secret. Had a&nbsp;
-            <a
+            <Anchors
               title="pizza"
-              href='https://en.wikipedia.org/wiki/Pizza'
-              {...sharedTags} >
-              pizza
-            </a>
+              href='https://en.wikipedia.org/wiki/Pizza' />
             &nbsp;in the oven that needed some TLC. Programmer’s gotta eat! So, where was I? … Oh yeah. He told me about&nbsp;
-            <a
+            <Anchors
               title="Emotion"
-              href='https://emotion.sh/docs/introduction'
-              {...sharedTags} >
-              Emotion
-            </a>
+              href='https://emotion.sh/docs/introduction' />
             &nbsp;
-            <a
+            <Anchors
               title="Core"
-              href='https://emotion.sh/docs/css-prop'
-              {...sharedTags} >
-              Core
-            </a>
+              href='https://emotion.sh/docs/css-prop' />
             /
-            <a
+            <Anchors
               title="Styled"
-              href='https://emotion.sh/docs/styled'
-              {...sharedTags} >
-              Styled
-            </a>
+              href='https://emotion.sh/docs/styled' />
             . It seems like a great way to style components and their jsx elements. Although, it’s easy to use, it took me some time until I developed a style for writing these styles. And about this “Context”. Ouff, this one gave me a headache for a couple of days. However, once I fully understood it, it went well. This method must be the method to pass props down multiple layers.
             <br/> <br/>
 
             <span>Log 7:&nbsp;</span>
             Oh My God! That’s where I heard Wes Bos before! Wes Bos and&nbsp;
-            <a
+            <Anchors
               title="Scott Tolinski"
-              href='https://www.scotttolinski.com/'
-              {...sharedTags} >
-              Scott Tolinski
-            </a>
+              href='https://www.scotttolinski.com/' />
             &nbsp;run this very insightful podcast called&nbsp;
-            <a
+            <Anchors
               title="Syntax"
-              href='https://syntax.fm/'
-              {...sharedTags} >
-              Syntax
-            </a>
+              href='https://syntax.fm/' />
             . They cover all sorts of topics on Front-End Development.
             <br/> <br/>
 
             <span>Log 8:&nbsp;</span>
             Today, I decided to start a new project to practice what I have learned to date. I figured, I could build a 1 page application before getting into the&nbsp;
-            <a
+            <Anchors
               title="Router"
-              href='https://reactjs.org/community/routing.html'
-              {...sharedTags} >
-              Router
-            </a>
+              href='https://reactjs.org/community/routing.html' />
             &nbsp;part of Wes Bos’s course. I decided to recreate the landing page of&nbsp;
-            <a
+            <Anchors
               title="IoTplace"
-              href='http://www.iotplace.store/'
-              {...sharedTags} >
-              IoTplace
-            </a>
+              href='http://www.iotplace.store/' />
             . It seems to be going well.
             <br/> <br/>
 
             <span>Log 9:&nbsp;</span>
             After showcasing this lovely project to Kolton, he pointed out yet another method for sharing information from component to component. This method is called&nbsp;
-            <a
+            <Anchors
               title="React-Redux"
-              href='https://github.com/reduxjs/react-redux'
-              {...sharedTags} >
-              React-Redux
-            </a>
+              href='https://github.com/reduxjs/react-redux' />
             . What a life changer that was! I am glad I learned “Context” first, because struggling to learn about “Context” has helped me better understand React and how it works. Its by searching for solutions that we discover. The article I read and followed to understand and use React-Redux is&nbsp;
-            <a
+            <Anchors
               title="here"
-              href='https://www.valentinog.com/blog/redux/'
-              {...sharedTags} >
-              here
-            </a>
+              href='https://www.valentinog.com/blog/redux/' />
             !
             <br/> <br/>
             
             <span>Log 10:&nbsp;</span>
             That project was great and all, however, it didn’t cover many of the complexities that can occur in the relationships between components. With that said, I have created a fun project called&nbsp;
-            <a
+            <Anchors
               title="Form Submission"
-              href='https://philiprurka.github.io/Form-Submission/'
-              {...sharedTags} >
-              Form Submission
-            </a>
+              href='https://philiprurka.github.io/Form-Submission/' />
             . Haha, intriguing and compelling name for a project right? Anyway, my goal for this project was to fully implement the tools I had learned, get a better understanding of when to use&nbsp;
-            <a
+            <Anchors
               title="Stateless/Functional vs Stateful/Class Components"
-              href='https://itnext.io/react-component-class-vs-stateless-component-e3797c7d23ab'
-              {...sharedTags} >
-              Stateless/Functional vs Stateful/Class Components
-            </a>
+              href='https://itnext.io/react-component-class-vs-stateless-component-e3797c7d23ab'/>
             &nbsp;and rock out with this new concept “React-Redux”.
             <br/> <br/>
             
@@ -259,26 +167,17 @@ const ReactBlog = () => {
             
             <span>Log 13:&nbsp;</span>
             Oh My God!!! I am having this issue with my navigation links. Their hover effects are resetting on page change. There is something that I am missing! I am spending way too much time on this! After a lot of time had passed, I learned an important lesson! React, in a way, maps out the&nbsp;
-            <a
+            <Anchors
               title="DOM"
-              href='https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction'
-              {...sharedTags} >
-              DOM
-            </a>
+              href='https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction' />
             , so upon re-rendering, React knows what to update. As long as the DOM Elements maintain their references with React, React can update the DOM elements without having to create a new one. I knew this already, however, it’s not something I had thought of. At first I thought my issue was a styling issue, then it was a form of&nbsp;
-            <a
+            <Anchors
               title="Rendering"
-              href='https://reactjs.org/docs/rendering-elements.html'
-              {...sharedTags} >
-              Rendering
-            </a>
+              href='https://reactjs.org/docs/rendering-elements.html' />
             &nbsp;issue. But when I realised that the component may be recreated every time the page changed, which would mean the reference would be lost and a new component would be replacing the old one, I traced up the nodes of the application’s component&nbsp;
-            <a
+            <Anchors
               title="tree"
-              href='https://code.tutsplus.com/articles/data-structures-with-javascript-tree--cms-23393'
-              {...sharedTags} >
-              tree
-            </a>
+              href='https://code.tutsplus.com/articles/data-structures-with-javascript-tree--cms-23393' />
             &nbsp;and noticed that my Header was a child of the components generated by my Router Component. To resolve the issue, I simply moved my Header up and made it a sibling of the Router Component.
             <br/> <br/>
             
@@ -288,34 +187,25 @@ const ReactBlog = () => {
             
             <span>Log 15:&nbsp;</span>
             Today, I took down philiprurka.com and attempted to deploy my code using&nbsp;
-            <a
+            <Anchors
               title="Netlify"
-              href='https://www.netlify.com/'
-              {...sharedTags} >
-              Netlify
-            </a>
+              href='https://www.netlify.com/' />
             . I had to try Netlify. I kept hearing great things about it via Kolton, Alex (Another friend/mentor) and the podcast “Syntax”. It’s very easy to use, says every article, youtube video and everyone. So how hard can it be?
             <br/> <br/>
             
             <span>Log 16:&nbsp;</span>
             Fuck my life! I have spent around 4h trying to deploy my damn code onto Netlify. The interface and the application is very easy to use, I'll give it that, but it doesn’t seem to like my project. I have even with ease deployed a project created by Wes Bos as a proof of concept and it took about 1 minute to deploy. That deployment went well and worked as expected. I mean, I don't know why I was expecting any different, he is kind of the shit! I must be missing something considering that I started my project off with&nbsp;
-            <a
+            <Anchors
               title="create-react-app"
-              href='https://github.com/facebook/create-react-app'
-              {...sharedTags} >
-              create-react-app
-            </a>
+              href='https://github.com/facebook/create-react-app' />
             . … About 2h later. ... Ok ok ok! After troubleshooting with both my mentors, I have realised that the issue is still unknown! Haha. I am losing it, I am going mental!
             <br/> <br/>
             
             <span>Log 17:&nbsp;</span>
             I finally figured it out! Ok, I don’t feel bad about this anymore considering its not an obvious solution. What had happened was, before trying to deploy this on Netlify, I had it running on&nbsp;
-            <a
+            <Anchors
               title="Github Pages"
-              href='https://pages.github.com/'
-              {...sharedTags} >
-              Github Pages
-            </a>
+              href='https://pages.github.com/' />
             &nbsp;and to that, I had to have a “homepage” key in my “package.json” that pointed to my Github project “https://philiprurka.github.io/Live-Portfolio/”. Because there was a subdirectory “Live-Portfolio”, when my project would perform a production build, it would add “Live-Portfolio” to the start of each of my static resource call. As soon as I removed that old line of code, Netlify became as easy as everyone said it was.
             <br/> <br/>
             

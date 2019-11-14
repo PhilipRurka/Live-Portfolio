@@ -7,7 +7,7 @@ const Anchor = styled.a({
   position: 'relative',
   display: 'inline-block',
   textDecoration: 'none !important',
-  outline: 'none',
+  outline: 'none !important',
 
   '&, &:active': {
     color: `${COLORS.red} !important`,
