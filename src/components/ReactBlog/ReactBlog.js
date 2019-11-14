@@ -2,12 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import CornerGradContainer from '../CornerGradContainer';
 import { COLORS } from '../../helpers/colors';
-import { navTransition } from '../../helpers/general';
-
-const sharedTags = {
-  target: '_blank',
-  rel: 'noopener noreferrer'
-};
+import { navTransition, sharedTags } from '../../helpers/general';
 
 const ReactBlogWrapper = styled.div({
   'label': {

@@ -11,21 +11,10 @@ export function navTransition(options = []) {
     overflow: 'hidden',
     width: '0',
     transition 
-  }
+  };
 };
 
-
-// {/* Relative Hover Click */}
-// <div className='menuLabel'>
-
-// {/* Absolute */}
-// <label>Menu</label>
-
-// {/* Absolute Transition */}
-// <div className="hovered">
-
-//   {/* Relative */}
-//   <label className='hidden'>Menu</label>
-
-//   {/* Absolute */}
-//   <label>Menu</label>
+export const sharedTags = {
+  target: '_blank',
+  rel: 'noopener noreferrer'
+};
