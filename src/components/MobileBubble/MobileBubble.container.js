@@ -1,14 +1,10 @@
-import NavBar from './NavBar';
+import MobileBubble from './MobileBubble';
 import { connect } from 'react-redux';
 import { toggleMobileBubble } from '../../redux/actions';
 
 const mapToStateToProps = ({
-  currentLocation,
-  history,
   mobileBubble
 }) => ({
-  currentLocation,
-  history,
   mobileBubble
 });
 
@@ -19,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapToStateToProps,
   mapDispatchToProps
-) (NavBar);
+) (MobileBubble);

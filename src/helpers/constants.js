@@ -2,6 +2,7 @@
 export const UPDATE_CURRENT_LOCATION = 'UPDATE_CURRENT_LOCATION';
 export const UPDATE_HISTORY = 'UPDATE_HISTORY';
 export const UPDATE_LOCATION = 'UPDATE_LOCATION';
+export const TOGGLE_MOBILE_BUBBLE = 'TOGGLE_MOBILE_BUBBLE';
 
 /** Routing */
 export const LANDING_PAGE = '/';

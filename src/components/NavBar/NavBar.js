@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import NavItem from '../NavItem';
-import Contact from '../Contact';
-import { COLORS } from '../../helpers/colors';
-import { navTransition } from '../../helpers/general'
+import Contact from '../Contact'
 import { breakPoints } from '../../helpers/breakPoints';
 import {
   LANDING_PAGE,
@@ -12,8 +10,8 @@ import {
   HELPFUL_RESOURCES_PAGE,
   QUESTIONS_AND_ANSWERS_PAGES
 } from '../../helpers/constants';
-
-const height = '32px';
+import MobileBubble from '../MobileBubble';
+import TwoIconLabel from '../TwoIconLabel';
 
 class Navbar extends React.Component {
 
@@ -51,74 +49,8 @@ class Navbar extends React.Component {
     '.wrapper': {
       display: 'block',
 
-      '.menuLabel': {
-        position: 'relative',
-        height,
-        width: '88px',
-        
-        '&, *': { cursor: 'pointer' },
-        '&:hover .hovered': { width: '100%' },
-
-        'label': {
-          height: '32px',
-          margin: '0',
-          paddingTop: '6px',
-          paddingLeft: '50px',
-          overflow: 'hidden',
-
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '0',
-            transform: 'translateY(-50%)',
-            zIndex: '0',
-            height: '38px',
-            width: '38px',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-          }
-        },
-
-        'label:not(.hidden)': {
-          position: 'absolute',
-          top: '0',
-          left: '0',
-        },
-
-        '& > label': {
-          zIndex: '0',
-          color: COLORS.red,
-
-          '&::before': {
-            backgroundImage: 'url("./images/hamburger-red.svg")'
-          },
-        },
-
-        '.hovered': {
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          height: '100%',
-          width: '0',
-          ...navTransition(),
-
-          '.hidden': {
-            position: 'relative',
-            zIndex: '-1',
-            opacity: '0',
-            width: 'initial',
-          },
-
-          'label + label': {
-            color: COLORS.purple,
-  
-            '&::before': {
-              backgroundImage: 'url("./images/hamburger-purple.svg")'
-            },
-          }
-        }
+      '.menuLabelWrapper': {
+        position: 'relative'
       },
 
       '.content': {
@@ -138,12 +70,23 @@ class Navbar extends React.Component {
     history.push(process.env.PUBLIC_URL + location);
   };
 
+  openMobileBubble = () => {
+    const { props:{ toggleMobileBubble } } = this;
+    toggleMobileBubble(true);
+  };
+
+  closeMobileBubble = () => {
+    const { props:{ toggleMobileBubble } } = this;
+    toggleMobileBubble(false);
+  };
+
   render() {
     const {
       Wrapper,
       NavItems,
       MobileMenu,
       goToPage,
+      openMobileBubble,
       props: {
         currentLocation
       }
@@ -183,36 +126,39 @@ class Navbar extends React.Component {
     };
 
     return (
-      <Wrapper>
-        <NavItems>
-          <NavItem {...navItems.home} />
-          <NavItem {...navItems.projects} />
-          <NavItem {...navItems.reactDiary} />
-          <NavItem {...navItems.helpful} />
-          <NavItem {...navItems.qAndA} />
-        </NavItems>
-        <MobileMenu className='mobileMenu'>
-          <div className='wrapper'>
-            <div className='menuLabel'>
-              <label>Menu</label>
-              <div className="hovered">
-                <label className='hidden'>Menu</label>
-                <label>Menu</label>
+      <>
+        <Wrapper>
+          <NavItems>
+            <NavItem {...navItems.home} />
+            <NavItem {...navItems.projects} />
+            <NavItem {...navItems.reactDiary} />
+            <NavItem {...navItems.helpful} />
+            <NavItem {...navItems.qAndA} />
+          </NavItems>
+          <MobileMenu className='mobileMenu'>
+            <div className='wrapper'>
+              <div className='menuLabelWrapper'>
+                <MobileBubble />
+                <TwoIconLabel
+                  text='Menu'
+                  icon='hamburger-red.svg'
+                  hoveredIcon='hamburger-purple.svg'
+                  clickEvent={openMobileBubble} />
+              </div>
+              <div className='content'>
+                <ul>
+                  <li> <NavItem {...navItems.home} /> </li>
+                  <li> <NavItem {...navItems.projects} /> </li>
+                  <li> <NavItem {...navItems.reactDiary} /> </li>
+                  <li> <NavItem {...navItems.helpful} /> </li>
+                  <li> <NavItem {...navItems.qAndA} /> </li>
+                </ul>
               </div>
             </div>
-            <div className='content'>
-              <ul>
-                <li> <NavItem {...navItems.home} /> </li>
-                <li> <NavItem {...navItems.projects} /> </li>
-                <li> <NavItem {...navItems.reactDiary} /> </li>
-                <li> <NavItem {...navItems.helpful} /> </li>
-                <li> <NavItem {...navItems.qAndA} /> </li>
-              </ul>
-            </div>
-          </div>
-        </MobileMenu>
-        <Contact className='contact' />
-      </Wrapper>
+          </MobileMenu>
+          <Contact className='contact' />
+        </Wrapper>
+      </>
     );
   };
 };
