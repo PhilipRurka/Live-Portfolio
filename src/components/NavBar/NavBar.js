@@ -87,6 +87,7 @@ class Navbar extends React.Component {
       MobileMenu,
       goToPage,
       openMobileBubble,
+      closeMobileBubble,
       props: {
         currentLocation
       }
@@ -138,7 +139,8 @@ class Navbar extends React.Component {
           <MobileMenu className='mobileMenu'>
             <div className='wrapper'>
               <div className='menuLabelWrapper'>
-                <MobileBubble />
+                <MobileBubble
+                closeBubble={closeMobileBubble} />
                 <TwoIconLabel
                   text='Menu'
                   icon='hamburger-red.svg'

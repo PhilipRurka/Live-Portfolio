@@ -75,7 +75,7 @@ const MenuLabel = styled.div(({ icon, hoveredIcon }) => ({
   }
 }));
 
-const TwoIconLabel = ({ text, icon, hoveredIcon, clickEvent }) => {
+const TwoIconLabel = ({ text, icon = null, hoveredIcon = null, clickEvent }) => {
 
   return (
     <MenuLabel

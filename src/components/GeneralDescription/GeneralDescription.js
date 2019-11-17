@@ -4,6 +4,7 @@ import CornerGradContainer from '../CornerGradContainer';
 import { breakPoints } from '../../helpers/breakPoints';
 import { COLORS } from '../../helpers/colors';
 import { navTransition } from '../../helpers/general';
+import { QUESTIONS_AND_ANSWERS_PAGES } from '../../helpers/constants';
 
 let ItemNumber = 1;
 
@@ -129,7 +130,7 @@ const GeneralDescription = ({ history }) => {
             <p>For a more in depth Questions & Answers, please navigate to&nbsp;
               <a
                 title='Q&A'
-                onClick={() => ( goToPage('/q-and-a', history) )} >
+                onClick={() => ( goToPage(QUESTIONS_AND_ANSWERS_PAGES, history) )} >
                 Q&A
               </a>
             .</p>
