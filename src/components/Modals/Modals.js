@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { COLORS } from '../../helpers/colors';
 
 // const Overlay = styled.div({
 //   position: 'fixed',

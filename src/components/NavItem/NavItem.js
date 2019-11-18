@@ -73,8 +73,8 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
       },
 
       '&::after': {
-        color: COLORS.purple,
-      },
+        color: COLORS.purple
+      }
     }
   };
 });

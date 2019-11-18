@@ -78,7 +78,6 @@ const Internal = ({
     return (
       <label
         title={text}
-        currentLocation={currentLocation}
         css={styles(text, addedStyles, icon, hoveredIcon, location)}
         onClick={clickHandler} >
           {text}
