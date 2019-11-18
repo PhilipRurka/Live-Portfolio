@@ -21,7 +21,7 @@ const contentArray = [
   },
   {
     span: 'Why do you do what you do?',
-    paragraph: 'My ultimate goal is to help increase the quality of life of others. Whether its by sharing knowledge/experiences or simply by the encounters and relationships we build built.'
+    paragraph: 'My ultimate goal is to help increase the quality of life of others. Whether its by sharing knowledge/experiences or simply by the encounters and relationships we build.'
   },
   {
     span: 'What’s a normal day?',

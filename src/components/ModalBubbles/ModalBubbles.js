@@ -10,7 +10,7 @@ const BubbleWrapper = styled.div(({ open }) => ({
   // padding: '15px',
   border: `2px solid ${COLORS.green}`,
   borderRadius: '5px',
-  backgroundColor: `rgba(240, 241, 242, 0.9)`,
+  backgroundColor: 'white',
   zIndex: '5'
 }));
 
