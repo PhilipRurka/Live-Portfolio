@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import { toggleMobileBubble } from '../../redux/actions';
 
 const mapToStateToProps = ({
-  history,
   mobileBubble
 }) => ({
-  history,
   mobileBubble
 });
 

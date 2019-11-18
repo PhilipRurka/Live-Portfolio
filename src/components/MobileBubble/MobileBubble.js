@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import ModalBubbles from '../ModalBubbles';
-import TwoIconLabel from '../TwoIconLabel';
+import NavLabels from '../NavLabels';
 import {
   LANDING_PAGE,
   PROJECTS_PAGE,
@@ -10,71 +10,95 @@ import {
   QUESTIONS_AND_ANSWERS_PAGES
 } from '../../helpers/constants';
 
+const Overlay = styled.div(({ show }) => ({
+  display: (show) ? 'initial' : 'none',
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  bottom: '0',
+  right: '0',
+  zIndex: '4'
+}));
+
 
 const MobileWrapper = styled.div({
-  height: '200px',
   width: '200px',
+  padding: '13px 0',
+
+  '.closeLabel': {
+    marginLeft: '15px'
+  }
 });
 
 const MobileContainer = styled.div({
 
+  'ul': {
+    marginTop: '15px'
+  },
+
+  'li': {
+    height: '32px',
+    paddingLeft: '13px',
+
+    'label' : {
+      marginTop: '7px'
+    }
+  },
 });
 
-const goToPage = (location, history) => {
-  history.push(process.env.PUBLIC_URL + location);
-};
-
-const MobileBubble = ({ mobileBubble, closeBubble, history }) => {
+const MobileBubble = ({ mobileBubble, closeBubble }) => {
   
   return (
-    <ModalBubbles open={mobileBubble}>
-      <MobileWrapper>
-        <TwoIconLabel
-          text='Close'
-          icon='close-icon-red.svg'
-          hoveredIcon='close-icon-purple.svg'
-          clickEvent={closeBubble} />
-          <MobileContainer>
-            <ul>
-              <li>
-                <TwoIconLabel
-                text='Home'
-                icon=''
-                hoveredIcon=''
-                clickEvent={() => (goToPage(LANDING_PAGE, history))} />
-              </li>
-              <li>
-                <TwoIconLabel
-                text='Projects'
-                icon=''
-                hoveredIcon=''
-                clickEvent={() => (goToPage(PROJECTS_PAGE, history))} />
-              </li>
-              <li>
-                <TwoIconLabel
-                text='React Diary'
-                icon=''
-                hoveredIcon=''
-                clickEvent={() => (goToPage(REACT_DIARY_PAGE, history))} />
-              </li>
-              <li>
-                <TwoIconLabel
-                text='Helpful Resources'
-                icon=''
-                hoveredIcon=''
-                clickEvent={() => (goToPage(HELPFUL_RESOURCES_PAGE, history))} />
-              </li>
-              <li>
-                <TwoIconLabel
-                text='Q&A'
-                icon=''
-                hoveredIcon=''
-                clickEvent={() => (goToPage(QUESTIONS_AND_ANSWERS_PAGES, history))} />
-              </li>
-            </ul>
-          </MobileContainer>
-      </MobileWrapper>
-    </ModalBubbles>
+    <>
+      <Overlay
+        onClick={closeBubble}
+        show={mobileBubble} />
+      <ModalBubbles open={mobileBubble}>
+        <MobileWrapper>
+          <NavLabels
+            className='closeLabel'
+            type='internal'
+            text='Close'
+            icon='close-icon-red.svg'
+            hoveredIcon='close-icon-purple.svg'
+            clickEvent={closeBubble} />
+            <MobileContainer>
+              <ul>
+                <li>
+                  <NavLabels
+                    type='internal'
+                    text='Home'
+                    clickEvent={LANDING_PAGE} />
+                </li>
+                <li>
+                  <NavLabels
+                    type='internal'
+                    text='Projects'
+                    clickEvent={PROJECTS_PAGE} />
+                </li>
+                <li>
+                  <NavLabels
+                    type='internal'
+                    text='React Diary'
+                    clickEvent={REACT_DIARY_PAGE} />
+                </li>
+                <li>
+                  <NavLabels
+                    type='internal'
+                    text='Helpful Resources'
+                    clickEvent={HELPFUL_RESOURCES_PAGE} />
+                </li>
+                <li>
+                  <NavLabels
+                    type='internal'
+                    text='Q&A'
+                    clickEvent={QUESTIONS_AND_ANSWERS_PAGES} />
+                </li>
+              </ul>
+            </MobileContainer>
+        </MobileWrapper>
+      </ModalBubbles>
+    </>
   );
 };
 

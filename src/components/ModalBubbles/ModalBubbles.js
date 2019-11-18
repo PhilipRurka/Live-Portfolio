@@ -7,11 +7,11 @@ const BubbleWrapper = styled.div(({ open }) => ({
   position: 'absolute',
   top: '-15px',
   left: '-15px',
-  padding: '15px',
+  // padding: '15px',
   border: `2px solid ${COLORS.green}`,
   borderRadius: '5px',
   backgroundColor: `rgba(240, 241, 242, 0.9)`,
-  zIndex: '1'
+  zIndex: '5'
 }));
 
 const MobileBubbles = ({ children, open }) => {

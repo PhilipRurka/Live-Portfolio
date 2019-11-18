@@ -1,1 +1,1 @@
-export { default } from './NavLabels';
+export { default } from './NavLabels.container';

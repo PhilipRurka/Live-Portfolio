@@ -11,7 +11,7 @@ import {
   QUESTIONS_AND_ANSWERS_PAGES
 } from '../../helpers/constants';
 import MobileBubble from '../MobileBubble';
-import TwoIconLabel from '../TwoIconLabel';
+import NavLabels from '../NavLabels';
 
 class Navbar extends React.Component {
 
@@ -141,8 +141,10 @@ class Navbar extends React.Component {
               <div className='menuLabelWrapper'>
                 <MobileBubble
                 closeBubble={closeMobileBubble} />
-                <TwoIconLabel
+                <NavLabels
+                  type='internal'
                   text='Menu'
+                  addedStyles='openStyles'
                   icon='hamburger-red.svg'
                   hoveredIcon='hamburger-purple.svg'
                   clickEvent={openMobileBubble} />
