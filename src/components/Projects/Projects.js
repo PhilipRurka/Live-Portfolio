@@ -28,15 +28,13 @@ const imageWidth = '28rem';
 const imageRightPosition = '100px';
 let projectNumber = 1;
 
-const ProjectWrapper = styled.div(({ color }) => {
-
-  return {
-    position: 'relative',
-    padding: '4rem 0',
-    backgroundColor: color,
-    minHeight: '300px'
-  };
-});
+const ProjectWrapper = styled.div(({ color }) => ({
+  position: 'relative',
+  padding: '4rem 0',
+  backgroundColor: color,
+  minHeight: '300px',
+  overflow: 'hidden'
+}));
 
 const CopySection = styled.div({
   color: COLORS.white,

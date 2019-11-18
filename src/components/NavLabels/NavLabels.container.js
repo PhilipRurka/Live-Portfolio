@@ -130,7 +130,13 @@ import { navTransition } from '../../helpers/general';
  * 
  */
 
-export const styles = (text, addedStyles, icon = null, hoveredIcon = null) => {
+export const styles = (
+  text,
+  addedStyles,
+  icon,
+  hoveredIcon,
+  location
+  ) => {
 
   // return new Promise ((resolve) => {
   //   return resolve()
@@ -145,7 +151,7 @@ export const styles = (text, addedStyles, icon = null, hoveredIcon = null) => {
         height: '32px',
         width: '88px',
         // FRONTEND: Temporary
-        // marginLeft: '15px 0 0 15px',
+        marginLeft: '15px 0 0 15px',
         
         '&, *': { cursor: 'pointer' },
         '&:hover .hovered': { width: '100%' },
@@ -226,18 +232,24 @@ export const styles = (text, addedStyles, icon = null, hoveredIcon = null) => {
           width: '100%'
         },
         
-        '&, &::after': {
-          whiteSpace: 'nowrap',
-          cursor: 'pointer'
-        },
+        '&, &::after': { cursor: 'pointer' },
+        '&, &::before, &::after': { whiteSpace: 'nowrap' },
         
-        '&::after': {
+        '&::after, &::before': {
           content: 'attr(title)',
           position: 'absolute',
           top: '0',
           left: '0',
-          color: `${COLORS.purple} !important`,
           ...navTransition()
+        },
+
+        '&::after': {
+          color: `${COLORS.purple} !important`
+        },
+
+        '&::before': {
+          color: `${COLORS.green} !important`,
+          width: (location && location.currentLocation === location.triggeredLocation) ? '100%' : '0'
         }
       }
     };

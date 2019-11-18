@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { toggleMobileBubble } from '../../redux/actions';
 
 const mapToStateToProps = ({
-  mobileBubble
+  mobileBubble,
+  currentLocation
 }) => ({
-  mobileBubble
+  mobileBubble,
+  currentLocation
 });
 
 const mapDispatchToProps = (dispatch) => ({

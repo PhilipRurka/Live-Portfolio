@@ -3,6 +3,7 @@ import styled from '@emotion/styled/macro';
 import CornerGradContainer from '../CornerGradContainer';
 import { COLORS } from '../../helpers/colors';
 import NavLabels from '../NavLabels';
+import { breakPoints } from '../../helpers/breakPoints';
 
 const ReactBlogWrapper = styled.div({
   'label': {
@@ -16,10 +17,22 @@ const ReactBlogWrapper = styled.div({
     color: COLORS.green
   },
 
+  'p, a': {
+    verticalAlign: 'top'
+  },
+
   'p': {
     lineHeight: '1.5em',
     margin: '0',
     fontSize: '1rem',
+  },
+
+  'a': {
+    [breakPoints.breakPointXXS]: {
+      maxWidth: '240px',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden'
+    }
   }
 });
 

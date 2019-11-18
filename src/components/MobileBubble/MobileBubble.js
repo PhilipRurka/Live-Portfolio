@@ -20,33 +20,34 @@ const Overlay = styled.div(({ show }) => ({
   zIndex: '4'
 }));
 
-
 const MobileWrapper = styled.div({
   width: '200px',
   padding: '13px 0',
 
   '.closeLabel': {
-    marginLeft: '15px'
+    margin: '0 0 7px 15px'
   }
 });
 
 const MobileContainer = styled.div({
 
-  'ul': {
+  '.list': {
     marginTop: '15px'
   },
 
-  'li': {
+  'label': {
     height: '32px',
-    paddingLeft: '13px',
+    width: '100%',
+    padding: '7px 0 0 13px',
 
-    'label' : {
-      marginTop: '7px'
+    '&::after, &::before': {
+      top: '7px',
+      left: '13px'
     }
   },
 });
 
-const MobileBubble = ({ mobileBubble, closeBubble }) => {
+const MobileBubble = ({ mobileBubble, closeBubble, currentLocation }) => {
   
   return (
     <>
@@ -63,38 +64,38 @@ const MobileBubble = ({ mobileBubble, closeBubble }) => {
             hoveredIcon='close-icon-purple.svg'
             clickEvent={closeBubble} />
             <MobileContainer>
-              <ul>
-                <li>
-                  <NavLabels
-                    type='internal'
-                    text='Home'
-                    clickEvent={LANDING_PAGE} />
-                </li>
-                <li>
-                  <NavLabels
-                    type='internal'
-                    text='Projects'
-                    clickEvent={PROJECTS_PAGE} />
-                </li>
-                <li>
-                  <NavLabels
-                    type='internal'
-                    text='React Diary'
-                    clickEvent={REACT_DIARY_PAGE} />
-                </li>
-                <li>
-                  <NavLabels
-                    type='internal'
-                    text='Helpful Resources'
-                    clickEvent={HELPFUL_RESOURCES_PAGE} />
-                </li>
-                <li>
-                  <NavLabels
-                    type='internal'
-                    text='Q&A'
-                    clickEvent={QUESTIONS_AND_ANSWERS_PAGES} />
-                </li>
-              </ul>
+              <div className='list'>
+                <NavLabels
+                  type='internal'
+                  text='Home'
+                  clickEvent={LANDING_PAGE}
+                  closeBubble={closeBubble}
+                  currentLocation={currentLocation} />
+                <NavLabels
+                  type='internal'
+                  text='Projects'
+                  clickEvent={PROJECTS_PAGE}
+                  closeBubble={closeBubble}
+                  currentLocation={currentLocation} />
+                <NavLabels
+                  type='internal'
+                  text='React Diary'
+                  clickEvent={REACT_DIARY_PAGE}
+                  closeBubble={closeBubble}
+                  currentLocation={currentLocation} />
+                <NavLabels
+                  type='internal'
+                  text='Helpful Resources'
+                  clickEvent={HELPFUL_RESOURCES_PAGE}
+                  closeBubble={closeBubble}
+                  currentLocation={currentLocation} />
+                <NavLabels
+                  type='internal'
+                  text='Q&A'
+                  clickEvent={QUESTIONS_AND_ANSWERS_PAGES}
+                  closeBubble={closeBubble}
+                  currentLocation={currentLocation} />
+              </div>
             </MobileContainer>
         </MobileWrapper>
       </ModalBubbles>

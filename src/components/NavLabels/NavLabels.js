@@ -36,16 +36,29 @@ const Internal = ({
   icon,
   hoveredIcon,
   className,
+  closeBubble,
+  currentLocation,
   history
 }) => {
 
   let clickHandler;
+  let location;
 
   if(typeof clickEvent === 'string' || clickEvent instanceof String) {
-    debugger
-    clickHandler = () => ( goToPage(clickEvent, history) );
+    location = {
+      currentLocation,
+      triggeredLocation: clickEvent
+    };
+
+    clickHandler = () => {
+      goToPage(clickEvent, history);
+      if(closeBubble) {
+        closeBubble();
+      };
+    };
   } else {
     clickHandler = clickEvent;
+    location = null;
   };
 
   if(icon) {
@@ -65,7 +78,8 @@ const Internal = ({
     return (
       <label
         title={text}
-        css={styles(text, addedStyles, icon, hoveredIcon)}
+        currentLocation={currentLocation}
+        css={styles(text, addedStyles, icon, hoveredIcon, location)}
         onClick={clickHandler} >
           {text}
       </label>
@@ -82,7 +96,9 @@ const NavLabels = ({
   icon = null,
   hoveredIcon = null,
   addedStyles = null,
+  closeBubble = null,
   className = '',
+  currentLocation = null,
   history
 
 }) => {
@@ -102,6 +118,8 @@ const NavLabels = ({
       hoveredIcon={hoveredIcon}
       clickEvent={clickEvent}
       addedStyles={addedStyles}
+      closeBubble={closeBubble}
+      currentLocation={currentLocation}
       history={history} />
   };
 
