@@ -14,7 +14,7 @@ const Wrapper = styled.div({
   'li': {
     position: 'relative',
     display: 'inline-block',
-    verticalAlign: 'middle',
+    verticalAlign: 'top',
 
     '&:first-of-type': { height: '100%' },
 
@@ -26,7 +26,7 @@ const Wrapper = styled.div({
       letterSpacing: '0.5px',
       color: COLORS.red,
       textDecoration: 'none',
-      ...navTransition,
+      ...navTransition(),
   
       '&:hover + a': { width: '100%' },
   
@@ -37,6 +37,16 @@ const Wrapper = styled.div({
         color: COLORS.purple,
         pointerEvents: 'none'
       }
+    }
+  },
+
+  '.email': {
+    'a': {
+      top: '6px'
+    },
+
+    'a:first-of-type': {
+      position: 'relative',
     }
   },
 
@@ -64,7 +74,7 @@ const Wrapper = styled.div({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         pointerEvents: 'none',
-        ...navTransition
+        ...navTransition()
       },
 
       'a': {
@@ -89,7 +99,7 @@ const Wrapper = styled.div({
 
 const email = (
   <a
-    title='LinkedIn Icon'
+    title='email'
     href="mailto:hey@philiprurka.com"
     >hey@<strong>philiprurka.com</strong>
   </a>
@@ -100,8 +110,8 @@ const Contact = ({ className }) => {
   return (
     <Wrapper className={className}>
       <ul>
-        <li />
-        <li>
+        {/* <li /> */}
+        <li className='email'>
           {email}
           {email}
         </li>

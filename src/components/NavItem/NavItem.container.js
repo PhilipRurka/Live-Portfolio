@@ -1,7 +1,9 @@
 import NavItem from './NavItem';
 import { connect } from 'react-redux';
 
-const mapToStateToProps = ({ currentLocation }) => ({
+const mapToStateToProps = ({
+  currentLocation
+}) => ({
   currentLocation
 });
 
