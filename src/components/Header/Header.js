@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import NavBar from '../NavBar';
+import Contact from '../Contact';
 import { breakPoints } from '../../helpers/breakPoints';
 
 const Wrapper = styled.div({
@@ -11,6 +12,7 @@ const Wrapper = styled.div({
     position: 'relative',
     paddingLeft: '1.71em',
     margin: '0',
+    display: 'inline-block',
 
     '&::after': {
       content: '""',
@@ -30,6 +32,16 @@ const Wrapper = styled.div({
     }
   },
 
+  '& > .largeView': {
+    float: 'right',
+    marginTop: '7px',
+    display: 'none',
+
+    [breakPoints.breakPointMD]: {
+      display: 'inline-block'
+    }
+  },
+
   'hr': {
     height: '3px',
     width: 'calc(100% + ((100vw - 100%) / 2))',
@@ -43,6 +55,7 @@ const Header = () => {
   return (
     <Wrapper className='container'>
       <h1>Philip Rurka</h1>
+      <Contact className='largeView' />
       <hr />
       <NavBar />
     </Wrapper>

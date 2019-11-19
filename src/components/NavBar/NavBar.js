@@ -1,49 +1,65 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import NavItem from '../NavItem';
-import Contact from '../Contact';
+import Contact from '../Contact'
 import { breakPoints } from '../../helpers/breakPoints';
+import {
+  LANDING_PAGE,
+  PROJECTS_PAGE,
+  REACT_DIARY_PAGE,
+  HELPFUL_RESOURCES_PAGE,
+  QUESTIONS_AND_ANSWERS_PAGES
+} from '../../helpers/constants';
+import MobileBubble from '../MobileBubble';
+import NavLabels from '../NavLabels';
 
 class Navbar extends React.Component {
 
   Wrapper = styled.div({
     display: 'flex',
     justifyContent: 'space-between',
-    flexDirection: 'column',
+
+    '.contact, .mobileMenu': {
+      margin: '15px 0',
+    },
     
-    '.largeView': {
-      display: 'none',
-      margin: '15px 0',
-      textAlign: 'center'
+    [breakPoints.breakPointXXS]: {
+      display: 'initial'
     },
 
-    '.smallView': {
-      margin: '15px 0',
-      textAlign: 'center'
-    },
-
-    [breakPoints.breakPointSM]: {
-      flexDirection: 'initial',
-
-      '.smallView': {
+    [breakPoints.breakPointMD]: {
+      '.contact': {
         display: 'none',
         margin: 'initial',
         textAlign: 'initial'
-      },
-
-      '.largeView': {
-        display: 'block'
       }
     }
   });
 
   NavItems = styled.div({
-    display: 'flex',
-    justifyContent: 'space-between',
+    display: 'none',
 
-    [breakPoints.breakPointSM]: {
+    [breakPoints.breakPointMD]: {
       display: 'initial',
-      justifyContent: 'initial'
+    }
+  });
+
+  MobileMenu = styled.div({
+
+    '.wrapper': {
+      display: 'block',
+
+      '.menuLabelWrapper': {
+        position: 'relative'
+      },
+
+      '.content': {
+        display: 'none'
+      },
+
+      [breakPoints.breakPointMD]: {
+        display: 'none'
+      }
     }
   });
 
@@ -54,35 +70,99 @@ class Navbar extends React.Component {
     history.push(process.env.PUBLIC_URL + location);
   };
 
+  openMobileBubble = () => {
+    const { props:{ toggleMobileBubble } } = this;
+    toggleMobileBubble(true);
+  };
+
+  closeMobileBubble = () => {
+    const { props:{ toggleMobileBubble } } = this;
+    toggleMobileBubble(false);
+  };
+
   render() {
     const {
       Wrapper,
       NavItems,
+      MobileMenu,
       goToPage,
+      openMobileBubble,
+      closeMobileBubble,
       props: {
         currentLocation
       }
     } = this;
 
+    const navItems = {
+      home: {
+        triggeredLocation: LANDING_PAGE,
+        copy: 'Home',
+        goToPage,
+        currentLocation
+      },
+      projects: {
+        triggeredLocation: PROJECTS_PAGE,
+        copy: 'Projects',
+        goToPage,
+        currentLocation
+      },
+      reactDiary: {
+        triggeredLocation: REACT_DIARY_PAGE,
+        copy: 'React Diary',
+        goToPage,
+        currentLocation
+      },
+      helpful: {
+        triggeredLocation: HELPFUL_RESOURCES_PAGE,
+        copy: 'Helpful Resources',
+        goToPage,
+        currentLocation
+      },
+      qAndA: {
+        triggeredLocation: QUESTIONS_AND_ANSWERS_PAGES,
+        copy: 'Q&A',
+        goToPage,
+        currentLocation
+      }
+    };
+
     return (
-      <Wrapper>
-        <Contact className='smallView' />
-        <NavItems>
-          <NavItem
-            triggeredLocation='/'
-            copy='Home'
-            goToPage={goToPage}
-            currentLocation={currentLocation}
-          />
-          <NavItem
-            triggeredLocation='/projects'
-            copy='Projects'
-            goToPage={goToPage}
-            currentLocation={currentLocation}
-          />
-        </NavItems>
-        <Contact className='largeView' />
-      </Wrapper>
+      <>
+        <Wrapper>
+          <NavItems>
+            <NavItem {...navItems.home} />
+            <NavItem {...navItems.projects} />
+            <NavItem {...navItems.reactDiary} />
+            <NavItem {...navItems.helpful} />
+            <NavItem {...navItems.qAndA} />
+          </NavItems>
+          <MobileMenu className='mobileMenu'>
+            <div className='wrapper'>
+              <div className='menuLabelWrapper'>
+                <MobileBubble
+                closeBubble={closeMobileBubble} />
+                <NavLabels
+                  type='internal'
+                  text='Menu'
+                  addedStyles='openStyles'
+                  icon='hamburger-red.svg'
+                  hoveredIcon='hamburger-purple.svg'
+                  clickEvent={openMobileBubble} />
+              </div>
+              <div className='content'>
+                <ul>
+                  <li> <NavItem {...navItems.home} /> </li>
+                  <li> <NavItem {...navItems.projects} /> </li>
+                  <li> <NavItem {...navItems.reactDiary} /> </li>
+                  <li> <NavItem {...navItems.helpful} /> </li>
+                  <li> <NavItem {...navItems.qAndA} /> </li>
+                </ul>
+              </div>
+            </div>
+          </MobileMenu>
+          <Contact className='contact' />
+        </Wrapper>
+      </>
     );
   };
 };

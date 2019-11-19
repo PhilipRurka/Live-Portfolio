@@ -48,7 +48,7 @@ class ImagesShowcase extends React.Component {
   };
 
   componentWillUnmount() {
-    clearInterval(this.timer.one)
+    clearInterval(this.timer.one);
     clearTimeout(this.timer.two);
     clearTimeout(this.timer.three);
   };

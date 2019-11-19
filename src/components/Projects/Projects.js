@@ -12,25 +12,29 @@ const projectsArray = [
   },
   {
     name: 'SimpTek',
-    description: 'Here is a company website that I have built. I very much enjoyed this project. The SimpTek Team are a bunch of passionate, hungry go-getters.',
+    description: 'Here is a company website that I have built. I very much enjoyed this project. The SimpTek Team are a bunch of passionate, hungry go-getters. I have also worked and build features on their Dashboard (For which I can not display on my portfolio site.).',
     link: 'http://www.simptekinc.com',
     image: 'SimpTek.png'
   },
+  {
+    name: 'Form Submission',
+    description: 'This project was created with the intent of gaining a better understanding of React. I do plan on developing it more and more asd time goes on.',
+    link:'https://philiprurka.github.io/Form-Submission/',
+    image:'Form-Submission.png'
+  }
 ];
 
 const imageWidth = '28rem';
 const imageRightPosition = '100px';
 let projectNumber = 1;
 
-const ProjectWrapper = styled.div(({ color }) => {
-
-  return {
-    position: 'relative',
-    padding: '4rem 0',
-    backgroundColor: color,
-    minHeight: '300px'
-  };
-});
+const ProjectWrapper = styled.div(({ color }) => ({
+  position: 'relative',
+  padding: '4rem 0',
+  backgroundColor: color,
+  minHeight: '300px',
+  overflow: 'hidden'
+}));
 
 const CopySection = styled.div({
   color: COLORS.white,
