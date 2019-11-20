@@ -47,7 +47,7 @@ const CopySection = styled.div({
   'hr': {
     border: 'none',
     height: '3px',
-    width: 'calc(100% + ((100vw - 100%) / 2) )',
+    width: 'calc(100% + ((100vw - 100%) / 2))',
     backgroundColor: 'white',
     margin: '0'
   },

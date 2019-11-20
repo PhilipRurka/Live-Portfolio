@@ -17,7 +17,7 @@ const contentArray = [
   },
   {
     span: 'Proficiencies?',
-    paragraph: 'Yes, several actually! I am proficient in Html, Pug, Css, Sass, Javascript, Angular 1 and now working towards becoming a React Guru!'
+    paragraph: 'Yes, several actually! I am proficient in HTML, Pug, CSS, Sass, Javascript, Angular 1 and now working towards becoming a React Guru!'
   },
   {
     span: 'Why do you do what you do?',
