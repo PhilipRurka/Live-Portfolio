@@ -75,14 +75,8 @@ const CopySection = styled.div({
   }
 });
 
-const Image = styled.div(({ image, name }) => {
+const Image = styled.div(({ image }) => {
   let imageHeight;
-
-  if(name === 'SimpTek') {
-    imageHeight = '16rem';
-  } else {
-    imageHeight = '18rem';
-  }
 
   return {
     width: '100%',
@@ -95,7 +89,7 @@ const Image = styled.div(({ image, name }) => {
     [breakPoints.breakPointSM]: {
       width: imageWidth,
       padding: 'initial',
-      height: imageHeight
+      height: '18rem'
     },
 
     [breakPoints.breakPointMD]: {
