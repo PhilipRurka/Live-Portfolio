@@ -18,10 +18,16 @@ const projectsArray = [
   },
   {
     name: 'Form Submission',
-    description: 'This project was created with the intent of gaining a better understanding of React. I do plan on developing it more and more asd time goes on.',
+    description: 'This project was created with the intent of gaining a better understanding of React. I do plan on developing it more and more ass time goes on. In this project, I worked with Redux-React, form validations & storing/removing/retraving session storage data.',
     link:'https://philiprurka.github.io/Form-Submission/',
     image:'Form-Submission.png'
-  }
+  },
+  // {
+  //   name: 'Ezabble',
+  //   description: 'The first time I used a library (Bootstrap) I was first confused, until I understood how they worked, than blown away. I kept thinking that, someone made this and simply made it available and free. Ever since that day, I have always wanted to make my own library for the hopes that someday someone will use my solution for their problem. Big or small, I wanted to contribute and give back to the community. That said, here is my first (and not the last) library. Let me remove the annoyance of having to create a beautiful tooltip.',
+  //   link:'https://github.com/PhilipRurka/ezabble',
+  //   image:'Ezabble.png'
+  // }
 ];
 
 const imageWidth = '28rem';
@@ -105,26 +111,26 @@ const Image = styled.div(({ image, name }) => {
 });
 
 const CheckIt = styled.div({
-  'button': {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    border: 'none',
-    fontSize: '0.75rem',
-    textTransform: 'uppercase',
-    padding: '10px 20px',
-    margin: '10px auto 0',  
+  'a': {
+    textDecoration: 'none',
+    outline: 'none',
+    margin: '10px auto 0',
     display: 'table',
-    transition: 'background-color 0.5s ease',
 
-    '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 1)'
-    },
-
-    'a': {
+    'button': {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      border: 'none',
+      fontSize: '0.75rem',
+      textTransform: 'uppercase',
+      padding: '10px 20px',
       color: COLORS.white,
-      textDecoration: 'none',
-      outline: 'none'
+      transition: 'background-color 0.5s ease',
+
+      '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 1)'
+      }
     },
-  
+
     [breakPoints.breakPointSM]: {
       marginTop: '10px'
     },
@@ -164,13 +170,14 @@ const Projects = () => {
             </CopySection>
             <Image image={image} />
             <CheckIt className='container'>
-              <button>
-                <a
-                  href={link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >Check It!</a>
-              </button>
+              <a
+                href={link}
+                target='_blank'
+                rel='noopener noreferrer' >
+                <button>
+                  Check It!
+                </button>
+              </a>
             </CheckIt>
           </ProjectWrapper>
         );
