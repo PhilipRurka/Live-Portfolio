@@ -43,9 +43,9 @@ const ProjectWrapper = styled.div(({ color }) => ({
   overflow: 'hidden'
 }));
 
-const CopySection = styled.div(({ fontColor }) => ({
+const CopySection = styled.div({
   position: 'relative',
-  color: fontColor,
+  color: 'white',
 
   'label': {
     fontSize: '2rem',
@@ -57,18 +57,20 @@ const CopySection = styled.div(({ fontColor }) => ({
     border: 'none',
     height: '3px',
     width: 'calc(100% + ((100vw - 100%) / 2) )',
-    backgroundColor: fontColor,
+    backgroundColor: 'white',
     margin: '0'
   },
 
   'p': {
     width: '100%',
-    fontWeight: '600'
+    fontSize: '18px',
+    fontWeight: '600',
+    letterSpacing: '0.5px'
   },
 
   [breakPoints.breakPointMD]: {
     'p': {
-      width: 'calc(100% - 186px)'
+      width: 'calc(100% - 200px)'
     }
   },
 
@@ -79,10 +81,10 @@ const CopySection = styled.div(({ fontColor }) => ({
     },
 
     'p': {
-      width: 'calc(100% - 386px)'
+      width: 'calc(100% - 395px)'
     },
   }
-}));
+});
 
 const Image = styled.div(({ image, bigType }) => ({
   width: '100%',
@@ -109,7 +111,7 @@ const Image = styled.div(({ image, bigType }) => ({
   }
 }));
 
-const CheckIt = styled.div({
+const CheckIt = styled.div(({ color }) => ({
   'a': {
     textDecoration: 'none',
     outline: 'none',
@@ -117,16 +119,18 @@ const CheckIt = styled.div({
     display: 'table',
 
     'button': {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)',
       border: 'none',
+      borderRadius: '5px',
       fontSize: '0.75rem',
+      fontWeight: '600',
       textTransform: 'uppercase',
       padding: '10px 20px',
-      color: COLORS.white,
+      color: color,
       transition: 'background-color 0.5s ease',
 
       '&:hover': {
-        backgroundColor: 'rgba(0, 0, 0, 1)'
+        backgroundColor: 'rgba(255, 255, 255, 1)'
       }
     },
 
@@ -139,7 +143,7 @@ const CheckIt = styled.div({
       display: 'inline-block'
     }
   }
-});
+}));
 
 const Projects = () => {
 
@@ -180,7 +184,9 @@ const Projects = () => {
                 image={image} 
                 bigType={isOdd} />
             </CopySection>
-            <CheckIt className='container'>
+            <CheckIt
+              className='container'
+              color={color} >
               <a
                 href={link}
                 target='_blank'
