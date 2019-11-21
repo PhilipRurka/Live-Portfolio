@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
 import { breakPoints } from '../../helpers/breakPoints';
+import { relative } from 'path';
 
 const projectsArray = [
   {
@@ -42,24 +43,27 @@ const ProjectWrapper = styled.div(({ color }) => ({
   overflow: 'hidden'
 }));
 
-const CopySection = styled.div({
-  color: COLORS.white,
+const CopySection = styled.div(({ fontColor }) => ({
+  position: 'relative',
+  color: fontColor,
 
   'label': {
-    fontSize: '1.5rem',
-    margin: '0'
+    fontSize: '2rem',
+    margin: '0',
+    fontWeight: '700'
   },
 
   'hr': {
     border: 'none',
     height: '3px',
-    width: 'calc(100% + ((100vw - 100%) / 2))',
-    backgroundColor: 'white',
+    width: 'calc(100% + ((100vw - 100%) / 2) )',
+    backgroundColor: fontColor,
     margin: '0'
   },
 
   'p': {
-    width: '100%'
+    width: '100%',
+    fontWeight: '600'
   },
 
   [breakPoints.breakPointMD]: {
@@ -69,15 +73,18 @@ const CopySection = styled.div({
   },
 
   [breakPoints.breakPointLG]: {
+
+    'hr': {
+      width: '100%'
+    },
+
     'p': {
       width: `calc(100% - ${imageWidth} + ((100vw - 100%) /2))`
     },
   }
-});
+}));
 
 const Image = styled.div(({ image }) => {
-  let imageHeight;
-
   return {
     width: '100%',
     margin: 'auto',
@@ -94,12 +101,12 @@ const Image = styled.div(({ image }) => {
 
     [breakPoints.breakPointMD]: {
       position: 'absolute',
-      top: '22px',
+      top: '-40px',
       right: `-${imageRightPosition}`
     },
 
     [breakPoints.breakPointLG]: {
-      right: '0'
+      right: '-38px'
     }
   };
 });
@@ -143,26 +150,34 @@ const Projects = () => {
       {projectsArray.map((project) => {
         const { name, description, link, image } = project;
         let color;
+        let fontColor;
 
         if(projectNumber === 1) {
           color = COLORS.red;
+          fontColor = '#0020be';
         } else if(projectNumber === 2) {
           color = COLORS.purple;
+          fontColor = '#24ff7d';
         } else if(projectNumber === 3) {
           color = COLORS.green;
+          fontColor = '#a50001';
           projectNumber = 0;
         }
 
         projectNumber += 1;
 
         return (
-          <ProjectWrapper key={name} color={color}>
-            <CopySection className='container'>
+          <ProjectWrapper
+            key={name}
+            color={color} >
+            <CopySection
+              className='container'
+              fontColor={fontColor} >
               <label>{name}</label>
               <hr/>
               <p>{description}</p>
+              <Image image={image} />
             </CopySection>
-            <Image image={image} />
             <CheckIt className='container'>
               <a
                 href={link}
