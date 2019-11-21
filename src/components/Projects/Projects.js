@@ -22,12 +22,12 @@ const projectsArray = [
     link:'https://philiprurka.github.io/Form-Submission/',
     image:'Form-Submission.png'
   },
-  // {
-  //   name: 'Ezabble',
-  //   description: 'The first time I used a library (Bootstrap) I was first confused, until I understood how they worked, than blown away. I kept thinking that, someone made this and simply made it available and free. Ever since that day, I have always wanted to make my own library for the hopes that someday someone will use my solution for their problem. Big or small, I wanted to contribute and give back to the community. That said, here is my first (and not the last) library. Let me remove the annoyance of having to create a beautiful tooltip.',
-  //   link:'https://github.com/PhilipRurka/ezabble',
-  //   image:'Ezabble.png'
-  // }
+  {
+    name: 'Ezabble',
+    description: 'The first time I used a library (Bootstrap) I was first confused, until I understood how they worked, than blown away. I kept thinking that, someone made this and simply made it available and free. Ever since that day, I have always wanted to make my own library for the hopes that someday someone will use my solution for their problem. Big or small, I wanted to contribute and give back to the community. That said, here is my first (and not the last) library. Let me remove the annoyance of having to create a beautiful tooltip.',
+    link:'https://github.com/PhilipRurka/ezabble',
+    image:'Ezabble.png'
+  }
 ];
 
 const imageWidth = '28rem';
@@ -53,7 +53,7 @@ const CopySection = styled.div({
   'hr': {
     border: 'none',
     height: '3px',
-    width: 'calc(100% + ((100vw - 100%) / 2) )',
+    width: 'calc(100% + ((100vw - 100%) / 2))',
     backgroundColor: 'white',
     margin: '0'
   },
@@ -75,14 +75,8 @@ const CopySection = styled.div({
   }
 });
 
-const Image = styled.div(({ image, name }) => {
+const Image = styled.div(({ image }) => {
   let imageHeight;
-
-  if(name === 'SimpTek') {
-    imageHeight = '16rem';
-  } else {
-    imageHeight = '18rem';
-  }
 
   return {
     width: '100%',
@@ -95,7 +89,7 @@ const Image = styled.div(({ image, name }) => {
     [breakPoints.breakPointSM]: {
       width: imageWidth,
       padding: 'initial',
-      height: imageHeight
+      height: '18rem'
     },
 
     [breakPoints.breakPointMD]: {

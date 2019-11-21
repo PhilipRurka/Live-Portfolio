@@ -73,9 +73,9 @@ const QuestionsAnswersPage = () => {
             <br />
             <label>Proficiencies?</label>
             <p>My Proficiencies are the following:</p>
-            <p className="bullet">Html</p>
+            <p className="bullet">HTML</p>
             <p className="bullet">Pug</p>
-            <p className="bullet">Css</p>
+            <p className="bullet">CSS</p>
             <p className="bullet">Sass</p>
             <p className="bullet">Javascript</p>
             <p className="bullet">Angular 1</p>
