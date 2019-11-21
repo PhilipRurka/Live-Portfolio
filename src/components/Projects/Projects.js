@@ -68,7 +68,7 @@ const CopySection = styled.div(({ fontColor }) => ({
 
   [breakPoints.breakPointMD]: {
     'p': {
-      width: `calc(100% - ${imageWidth} + ((100vw - 100%) /2) + ${imageRightPosition})`
+      width: 'calc(100% - 186px)'
     }
   },
 
@@ -79,37 +79,35 @@ const CopySection = styled.div(({ fontColor }) => ({
     },
 
     'p': {
-      width: `calc(100% - ${imageWidth} + ((100vw - 100%) /2))`
+      width: 'calc(100% - 386px)'
     },
   }
 }));
 
-const Image = styled.div(({ image }) => {
-  return {
-    width: '100%',
-    margin: 'auto',
-    paddingBottom: '58vw',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url("./images/${image}")`,
-    
-    [breakPoints.breakPointSM]: {
-      width: imageWidth,
-      padding: 'initial',
-      height: '18rem'
-    },
+const Image = styled.div(({ image, bigType }) => ({
+  width: '100%',
+  margin: 'auto',
+  paddingBottom: '58vw',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+  backgroundImage: `url("./images/${image}")`,
+  
+  [breakPoints.breakPointSM]: {
+    width: imageWidth,
+    padding: 'initial',
+    height: '18rem'
+  },
 
-    [breakPoints.breakPointMD]: {
-      position: 'absolute',
-      top: '-40px',
-      right: `-${imageRightPosition}`
-    },
+  [breakPoints.breakPointMD]: {
+    position: 'absolute',
+    top: (bigType) ? '-40px' : '-50px',
+    right: '-230px'
+  },
 
-    [breakPoints.breakPointLG]: {
-      right: '-38px'
-    }
-  };
-});
+  [breakPoints.breakPointLG]: {
+    right: '-38px'
+  }
+}));
 
 const CheckIt = styled.div({
   'a': {
@@ -147,7 +145,7 @@ const Projects = () => {
 
   return (
     < >
-      {projectsArray.map((project) => {
+      {projectsArray.map((project, index) => {
         const { name, description, link, image } = project;
         let color;
         let fontColor;
@@ -162,7 +160,9 @@ const Projects = () => {
           color = COLORS.green;
           fontColor = '#a50001';
           projectNumber = 0;
-        }
+        };
+
+        let isOdd = ((index % 2) === 0);
 
         projectNumber += 1;
 
@@ -176,7 +176,9 @@ const Projects = () => {
               <label>{name}</label>
               <hr/>
               <p>{description}</p>
-              <Image image={image} />
+              <Image
+                image={image} 
+                bigType={isOdd} />
             </CopySection>
             <CheckIt className='container'>
               <a
