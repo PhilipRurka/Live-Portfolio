@@ -28,6 +28,12 @@ const projectsArray = [
     description: 'The first time I used a library (Bootstrap) I was first confused, until I understood how they worked, than blown away. I kept thinking that, someone made this and simply made it available and free. Ever since that day, I have always wanted to make my own library for the hopes that someday someone will use my solution for their problem. Big or small, I wanted to contribute and give back to the community. That said, here is my first (and not the last) library. Let me remove the annoyance of having to create a beautiful tooltip.',
     link:'https://github.com/PhilipRurka/ezabble',
     image:'Ezabble.png'
+  },
+  {
+    name: 'BlueKiwi In React | Still being developed!',
+    description: 'I am basically recreating an old project from scratch with some UI adjustments. By doing so, I will learn how to make API calls with React and hook everything up to a database. I am making frequent deployments for those who are curious about its progress.',
+    link:'https://philiprurka.github.io/BlueKiwi-React/',
+    image:'BlueKiwi-React.png'
   }
 ];
 
