@@ -34,24 +34,43 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={landingPage} component={(props) => (
-          <Pages {...props} page={landingPage} />
-        )} />
-        <Route path={projectsPage} component={(props) => (
-          <Pages {...props} page={projectsPage} />
-        )} />
-        <Route path={questionsAnswersPage} component={(props) => (
-          <Pages {...props} page={questionsAnswersPage} />
-        )} />
-        <Route path={reactDiaryPage} component={(props) => (
-          <Pages {...props} page={reactDiaryPage} />
-        )} />
-        <Route path={helpfulResourcesPage} component={(props) => (
-          <Pages {...props} page={helpfulResourcesPage} />
-        )} />
-        <Redirect to={landingPage} component={(props) => (
-          <Pages {...props} page={landingPage} />
-        )} />
+        <Route
+          exact
+          path={landingPage}
+          component={(props) => (
+            <Pages {...props}
+              page={landingPage} />
+          )} />
+        <Route
+          path={projectsPage}
+          component={(props) => (
+            <Pages {...props}
+            page={projectsPage} />
+          )} />
+        <Route
+          path={questionsAnswersPage}
+          component={(props) => (
+            <Pages {...props}
+            page={questionsAnswersPage} />
+          )} />
+        <Route
+          path={reactDiaryPage}
+          component={(props) => (
+            <Pages {...props}
+              page={reactDiaryPage} />
+          )} />
+        <Route
+          path={helpfulResourcesPage}
+          component={(props) => (
+            <Pages {...props}
+              page={helpfulResourcesPage} />
+          )} />
+        <Redirect
+          to={landingPage}
+          component={(props) => (
+            <Pages {...props}
+              page={landingPage} />
+          )} />
       </Switch>
     </BrowserRouter>
   );
