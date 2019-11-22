@@ -63,8 +63,8 @@ const CopySection = styled.div({
 
   'p': {
     width: '100%',
-    fontSize: '18px',
-    fontWeight: '600',
+    fontSize: '20px',
+    fontWeight: '200',
     letterSpacing: '0.5px'
   },
 
