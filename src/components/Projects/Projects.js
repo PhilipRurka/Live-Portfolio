@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
 import { breakPoints } from '../../helpers/breakPoints';
-import { relative } from 'path';
 
 const projectsArray = [
   {
@@ -38,8 +37,9 @@ const projectsArray = [
 ];
 
 const imageWidth = '28rem';
-const imageRightPosition = '100px';
 let projectNumber = 1;
+
+const shadow = '1px 1px 5px black'
 
 const ProjectWrapper = styled.div(({ color }) => ({
   position: 'relative',
@@ -53,6 +53,10 @@ const CopySection = styled.div({
   position: 'relative',
   color: 'white',
 
+  'label, p': {
+    textShadow: shadow
+  },
+
   'label': {
     fontSize: '2rem',
     margin: '0',
@@ -64,7 +68,8 @@ const CopySection = styled.div({
     height: '3px',
     width: 'calc(100% + ((100vw - 100%) / 2) )',
     backgroundColor: 'white',
-    margin: '0'
+    margin: '0',
+    boxShadow: shadow
   },
 
   'p': {
@@ -130,9 +135,11 @@ const CheckIt = styled.div(({ color }) => ({
       borderRadius: '5px',
       fontSize: '0.75rem',
       fontWeight: '600',
+      letterSpacing: '0.5px',
       textTransform: 'uppercase',
       padding: '10px 20px',
       color: color,
+      boxShadow: '1px 1px 6px -1px black',
       transition: 'background-color 0.5s ease',
 
       '&:hover': {
