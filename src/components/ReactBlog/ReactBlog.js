@@ -249,7 +249,7 @@ const ReactBlog = () => {
             <br/> <br/>
             
             <span>Log 18:&nbsp;</span>
-            Awesome, its now live, lets try and break it! … I seem to have some sort of Routing issue. When I click on a Navigation Link, it routes as expected, however, when I copy/past “philiprurka.com/projects” into the URL, it fails. … Right on, I just had to configure Netlify and add some files to my project to handle these redirection. Finally I can go to sleep!
+            Awesome, its now live, lets try and break it! … I seem to have some sort of Routing issue. When I click on a Navigation Link, it routes as expected, however, when I copy/past “philiprurka.com/projects” into the URL, it fails. … Right on, I just had to configure Netlify and add some files to my project to handle these redirection. Finally I can go to sleep and think about my next project!
           </p>
         </ReactBlogWrapper>
 
