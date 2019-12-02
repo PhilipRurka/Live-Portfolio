@@ -18,7 +18,7 @@ const projectsArray = [
   },
   {
     name: 'Form Submission',
-    description: 'This project was created with the intent of gaining a better understanding of React. I do plan on developing it more and more ass time goes on. In this project, I worked with Redux-React, form validations & storing/removing/retraving session storage data.',
+    description: 'This project was created with the intent of gaining a better understanding of React. I do plan on developing it more and more ass time goes on. In this project, I worked with Redux-React, form validations & storing/removing/retrieving session storage data.',
     link:'https://philiprurka.github.io/Form-Submission/',
     image:'Form-Submission.png'
   },
