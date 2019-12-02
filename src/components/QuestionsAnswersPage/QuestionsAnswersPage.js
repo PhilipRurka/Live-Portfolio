@@ -79,7 +79,7 @@ const QuestionsAnswersPage = () => {
             <p className="bullet">Sass</p>
             <p className="bullet">Javascript</p>
             <p className="bullet">Angular 1</p>
-            <p className="bullet">React (In Progress)</p>
+            <p className="bullet">React</p>
             <br />
             <p>I have obtained skills such as:</p>
             <p className="bullet">Building emails</p>
