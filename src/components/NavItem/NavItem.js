@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
 import { navTransition } from '../../helpers/general';
+import { breakPoints } from '../../helpers/breakPoints';
 
 const Content = styled.div(({ triggeredLocation, currentLocation }) => {
   let psudoStyle;
@@ -19,7 +20,11 @@ const Content = styled.div(({ triggeredLocation, currentLocation }) => {
   return {
     position: 'relative',
     display: 'inline-block',
-    padding: '1.25em 2em',
+    padding: '20px',
+    
+    [breakPoints.breakPointLG]: {
+      padding: '20px 32px'
+    },
 
     '&::before, &::after': {
       content: '""',
