@@ -10,7 +10,8 @@ import {
   PROJECTS_PAGE,
   REACT_DIARY_PAGE,
   HELPFUL_RESOURCES_PAGE,
-  QUESTIONS_AND_ANSWERS_PAGES
+  QUESTIONS_AND_ANSWERS_PAGE,
+  RESUME_PAGE
 } from '../../helpers/constants';
 import Pages from '../Pages';
 
@@ -19,7 +20,8 @@ const routeOptions = {
   projectsPage: process.env.PUBLIC_URL + PROJECTS_PAGE,
   reactDiaryPage: process.env.PUBLIC_URL + REACT_DIARY_PAGE,
   helpfulResourcesPage: process.env.PUBLIC_URL + HELPFUL_RESOURCES_PAGE,
-  questionsAnswersPage: process.env.PUBLIC_URL + QUESTIONS_AND_ANSWERS_PAGES
+  questionsAnswersPage: process.env.PUBLIC_URL + QUESTIONS_AND_ANSWERS_PAGE,
+  resumePage: process.env.PUBLIC_URL + RESUME_PAGE
 };
 
 const Router = () => {
@@ -28,7 +30,8 @@ const Router = () => {
     projectsPage,
     reactDiaryPage,
     helpfulResourcesPage,
-    questionsAnswersPage
+    questionsAnswersPage,
+    resumePage
   } = routeOptions
 
   return (
@@ -64,6 +67,12 @@ const Router = () => {
           component={(props) => (
             <Pages {...props}
               page={helpfulResourcesPage} />
+          )} />
+        <Route
+          path={resumePage}
+          component={(props) => (
+            <Pages {...props}
+              page={resumePage} />
           )} />
         <Redirect
           to={landingPage}

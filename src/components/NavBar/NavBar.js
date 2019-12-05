@@ -8,7 +8,8 @@ import {
   PROJECTS_PAGE,
   REACT_DIARY_PAGE,
   HELPFUL_RESOURCES_PAGE,
-  QUESTIONS_AND_ANSWERS_PAGES
+  QUESTIONS_AND_ANSWERS_PAGE,
+  RESUME_PAGE
 } from '../../helpers/constants';
 import MobileBubble from '../MobileBubble';
 import NavLabels from '../NavLabels';
@@ -119,8 +120,14 @@ class Navbar extends React.Component {
         currentLocation
       },
       qAndA: {
-        triggeredLocation: QUESTIONS_AND_ANSWERS_PAGES,
+        triggeredLocation: QUESTIONS_AND_ANSWERS_PAGE,
         copy: 'Q&A',
+        goToPage,
+        currentLocation
+      },
+      resume: {
+        triggeredLocation: RESUME_PAGE,
+        copy: 'Resume/CV',
         goToPage,
         currentLocation
       }
@@ -135,12 +142,13 @@ class Navbar extends React.Component {
             <NavItem {...navItems.reactDiary} />
             <NavItem {...navItems.helpful} />
             <NavItem {...navItems.qAndA} />
+            <NavItem {...navItems.resume} />
           </NavItems>
           <MobileMenu className='mobileMenu'>
             <div className='wrapper'>
               <div className='menuLabelWrapper'>
                 <MobileBubble
-                closeBubble={closeMobileBubble} />
+                  closeBubble={closeMobileBubble} />
                 <NavLabels
                   type='internal'
                   text='Menu'
@@ -148,15 +156,6 @@ class Navbar extends React.Component {
                   icon='hamburger-red.svg'
                   hoveredIcon='hamburger-purple.svg'
                   clickEvent={openMobileBubble} />
-              </div>
-              <div className='content'>
-                <ul>
-                  <li> <NavItem {...navItems.home} /> </li>
-                  <li> <NavItem {...navItems.projects} /> </li>
-                  <li> <NavItem {...navItems.reactDiary} /> </li>
-                  <li> <NavItem {...navItems.helpful} /> </li>
-                  <li> <NavItem {...navItems.qAndA} /> </li>
-                </ul>
               </div>
             </div>
           </MobileMenu>

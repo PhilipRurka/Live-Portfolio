@@ -7,7 +7,8 @@ import {
   PROJECTS_PAGE,
   REACT_DIARY_PAGE,
   HELPFUL_RESOURCES_PAGE,
-  QUESTIONS_AND_ANSWERS_PAGES
+  QUESTIONS_AND_ANSWERS_PAGE,
+  RESUME_PAGE
 } from '../../helpers/constants';
 
 const Overlay = styled.div(({ show }) => ({
@@ -92,7 +93,13 @@ const MobileBubble = ({ mobileBubble, closeBubble, currentLocation }) => {
                 <NavLabels
                   type='internal'
                   text='Q&A'
-                  clickEvent={QUESTIONS_AND_ANSWERS_PAGES}
+                  clickEvent={QUESTIONS_AND_ANSWERS_PAGE}
+                  closeBubble={closeBubble}
+                  currentLocation={currentLocation} />
+                <NavLabels
+                  type='internal'
+                  text='Resume/CV'
+                  clickEvent={RESUME_PAGE}
                   closeBubble={closeBubble}
                   currentLocation={currentLocation} />
               </div>

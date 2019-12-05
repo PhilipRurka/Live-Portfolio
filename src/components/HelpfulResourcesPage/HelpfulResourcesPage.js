@@ -38,7 +38,7 @@ const Intro = styled.div({
   }
 });
 
-const HelpfulResources = () => {
+const HelpfulResourcesPage = () => {
 
   return (
     <div className='container'>
@@ -228,4 +228,4 @@ const HelpfulResources = () => {
   );
 };
 
-export default HelpfulResources;
+export default HelpfulResourcesPage;
