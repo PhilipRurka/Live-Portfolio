@@ -135,17 +135,24 @@ const ResumePageWrapper = styled.div({
     }
   },
   
-  '.employment-history-wrapper ': {
+  '.employment-history-wrapper': {
     
     '&::before': {
       backgroundImage: 'url(./images/employment.svg)'
     }
   },
 
-  '.education-wrapper ': {
+  '.education-wrapper': {
     
     '&::before': {
       backgroundImage: 'url(./images/education.svg)'
+    }
+  },
+
+  '.sar-wrapper': {
+    
+    '&::before': {
+      backgroundImage: 'url(./images/success.svg)'
     }
   },
 
@@ -350,6 +357,24 @@ const Education = () => (
   </div>
 );
 
+const SAR = () => (
+  <div className="sar-wrapper wrapper">
+    <label>SAR (Situation, Action, Result)</label>
+    <div className='employment-history-content content'>
+      <ul>
+        <li>
+          <span>Currently writting copy for this section.</span>
+          {/* <p></p> */}
+        </li>
+        {/* <li>
+          <span></span>
+          <p></p>
+        </li> */}
+      </ul>
+    </div>
+  </div>
+);
+
 const ResumePage = () => {
 
   return (
@@ -358,6 +383,7 @@ const ResumePage = () => {
       <Profile />
       <EmploymentHistory />
       <Education />
+      <SAR />
     </ResumePageWrapper>
   );
 };
