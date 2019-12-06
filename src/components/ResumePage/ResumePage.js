@@ -381,7 +381,7 @@ const SAR = () => (
           <span className='sar-titles'>Result:</span>
           <p>
             As a result, I better understood what it was like to be a remote worker within the Tech Team.
-            I got closer to my, now friends, from Halifax (We went fishing a couple occasions while I was there). I was able to make some requests for some office supplies and other supplies that helped them out tremendously. Since my trip to Halifax, I had noticed a positive shift in their behaviour and overall engagement.
+            I got closer to my, now friends from Halifax (We went fishing a couple occasions while I was there). I was able to make some requests for some office supplies and other supplies that helped them out tremendously. Since my trip to Halifax, I had noticed a positive shift in their behaviour and overall engagement.
             As a Team Lead, it’s important to create connections, establish healthy dynamics and promote a positive culture with your team members.
           </p>
         </li>
