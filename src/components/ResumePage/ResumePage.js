@@ -225,7 +225,7 @@ const Profile = () => (
         <span className='bullet'>Creating, writing and optimizing processes</span>
         <span className='bullet'>Design system creation and implementation</span>
         <span className='bullet'>Handling cleaning, sanitizing and rebuilding complex data structures from requests</span>
-        <span className='bullet'>Handling complex UI revamps/redesigns while users are not affect</span>
+        <span className='bullet'>Handling complex UI revamps/redesigns while users are not affected</span>
         <span className='bullet'>Major work with Graphing libraries</span>
       </p>
     </div>
@@ -238,20 +238,20 @@ const EmploymentHistory = () => (
     <div className='employment-history-content content'>
       <ul>
         <li>
-          <span>Front-End Developer & Team Lead of the Technology Department at&nbsp;
+          <span>Front-End Developer & Team Lead at&nbsp;
             <a
               href="https://www.simptekinc.com/"
               target='_blank'
               rel='noopener noreferrer' >
               SimpTek
             </a>
-            , Fredericton, New-Brunswick</span>
+            , Fredericton, NB</span>
           <span>December 2016 - February 2019</span>
           <p>
             My first position in the Tech Industry was an internship at SimpTek. After 1 month of being an intern, I was employed. I joined a team of well skilled developers and had much to learn. During my 2 years of working at this innovative startup, I went from:
-            <span className='bullet'>Spending little time on sleep and many extra hours at cafes to learn what an API was, what to do with them and how to develop in Angular1</span>
+            <span className='bullet'>Spending little time on sleep and many extra hours at cafes to learn what an API was, what to do with them and how to develop in Angular1.</span>
             to
-            <span className='bullet'>Being Team Lead of the Tech Department</span>
+            <span className='bullet'>Being Team Lead of the Technology Department.</span>
           </p>
           <p>By the time I grew to Team Lead, my responsibilities were the following:
             <span className='bullet'>Front-End Development</span>
@@ -291,7 +291,7 @@ const EmploymentHistory = () => (
             , Montreal</span>
           <span>February 2019 - April 2019</span>
           <p>
-            I was brought in as an hourly rate contractor that ended up lasting 2 months. During my time there, I worked on a real tight deadline for their Marketplace site and on their general website.
+            I was brought in as an hourly rate contractor that ended up lasting 2 months. During my time there, I worked on a 2 week deadline for their Marketplace site. With 100 hour in and the help of their backend team, we delivered! I also worked on re-building their entire website. During that process, I got to work with Google Maps and some of its custom actions.
             <br />
             If you want some more information regarding this job, I would be happy to share in person.
           </p>
