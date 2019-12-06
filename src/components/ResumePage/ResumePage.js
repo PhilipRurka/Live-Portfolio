@@ -11,6 +11,15 @@ const ResumePageWrapper = styled.div({
       color: '#007bff'
     }
   },
+
+  'img': {
+    width: '100%',
+
+    [breakPoints.breakPointSM]: {
+      display: 'block',
+      width: '450px'
+    }
+  },
   
   'p': {
     color: 'gray',
@@ -316,7 +325,17 @@ const Education = () => (
             rel='noopener noreferrer' >
             Team Treehouse
           </a>
+          &nbsp;-&nbsp;
+          <a
+            href="https://teamtreehouse.com/philiprurka"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Profile
+          </a>
         </span>
+        <span className='bullet'>Various documentations and blogs</span>
+        <span className='bullet'>Collaborating with my mentor</span>
+        <span className='bullet'>Building multiple projects to better improve myself</span>
         <span className='bullet'>Wes Bos's&nbsp;
           <a
             href="https://reactforbeginners.com/"
@@ -324,10 +343,8 @@ const Education = () => (
             rel='noopener noreferrer' >
             React For Beginners
           </a>
+          <img src="./images/Wes-Certificate.png" alt="Certificate"/>
         </span>
-        <span className='bullet'>Various documentations and blogs</span>
-        <span className='bullet'>Collaborating with my mentor</span>
-        <span className='bullet'>Building multiple projects to better improve myself</span>
       </p>
     </div>
   </div>
