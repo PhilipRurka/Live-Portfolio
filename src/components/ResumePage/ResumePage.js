@@ -204,7 +204,7 @@ const Profile = () => (
       <p>
         Greetings!
         <br />
-        I am a bilingual self-taught Front-End Developer who absolutely loves developing. Especially with a hard working and passionate team! A healthy work culture is very importent to me. My ultimate goal is to help increase the quality of life of others. Whether its by sharing knowledge/experiences or simply by the encounters and relationships we build.
+        I am a bilingual self-taught Front-End Developer who absolutely loves developing. Especially with a hard working and passionate team! A healthy work culture is very important to me. My ultimate goal is to help increase the quality of life of others. Whether its by sharing knowledge/experiences or simply by the encounters and relationships we build.
       </p>
       <p>
         My proficiencies are the following:
@@ -223,6 +223,10 @@ const Profile = () => (
         <span className='bullet'>Leading a team</span>
         <span className='bullet'>Conducting and leading meetings</span>
         <span className='bullet'>Creating, writing and optimizing processes</span>
+        <span className='bullet'>Design system creation and implementation</span>
+        <span className='bullet'>Handling cleaning, sanitizing and rebuilding complex data structures from requests</span>
+        <span className='bullet'>Handling complex UI revamps/redesigns while users are not affect</span>
+        <span className='bullet'>Major work with Graphing libraries</span>
       </p>
     </div>
   </div>
@@ -262,7 +266,10 @@ const EmploymentHistory = () => (
             <span className='bullet'>Research on new technologies to better the efficiency and effectiveness of the Tech Team</span>
           </p>
           <p>
-            The projects I worked on were the Building360 Dashboard, their website, custom dynamic emails and custom email signatures. (I can share in more details in person)
+            The projects I worked on were the Building360 Dashboard, their website, custom dynamic emails and custom email signatures.
+            <span className='bullet'><strong>Building360 Dashboard:</strong> I had a major part in building their version 1 and version 2 of their Dashboard. Within this project, I had implemented multiple custom and interactive Graphs that would dictate information displayed in a filterable table and vise versa. I got to build the Login, Reset Password, Registration process and all of their emails.</span>
+            <span className='bullet'><strong>SimpTek Website:</strong> I had redesigned the styling folder structure and built version 2 from scratch.</span>
+            I can share more details regarding these projects in person.
           </p>
           <p>
           I can elaborate more in person as to what processes and implementations I brought forward to better the efficiency, effectiveness and culture of the overall Tech Team.
