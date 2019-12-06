@@ -152,13 +152,17 @@ const ResumePageWrapper = styled.div({
   '.sar-wrapper': {
 
     '.first-sar': {
-      marginTop: '10px'
+      marginTop: '10px',
+
+      '& + span': {
+        marginTop: '15px'
+      }
     },
 
     '.sar-titles': {
       fontWeight: '600',
       color: 'gray',
-      margin: '30px 0 0'
+      margin: '30px 0 0',
     },
     
     '&::before': {
@@ -374,19 +378,34 @@ const SAR = () => (
       <ul>
         <li>
           <span className='first-sar'>Our Remote Developers</span>
-          <span className='sar-titles'>Situation:</span>
+          <span className='sar-titles'>Situation</span>
           <p>
             When I became Team Lead at SimpTek, I felt it was important to get closer to each of my team members and dive deeper into our culture. I knew my team members from the Fredericton office very well, considering I spent my days working beside them, however, there were two developers located in the Halifax office (Different city in a different province) that I only really got to know through meetings and work interactions. My worries were that they may not feel included in our work and/or team culture and they may be missing some elements in their work environment that could better their work efficient/effective, engagement and more importantly, their health. I also wanted to better understand what it was like to be a remote worker and see what improvements can be done to better help them feel included.
           </p>
-          <span className='sar-titles'>Action:</span>
+          <span className='sar-titles'>Action</span>
           <p>
             I decided to move to Halifax for a month (Entirely out of my own pocket). I rented an apartment that was far enough from the office that allowed me to experience a 2 hour daily commute. I wanted, to the best of my abilities, experience their day to day.
           </p>
-          <span className='sar-titles'>Result:</span>
+          <span className='sar-titles'>Result</span>
           <p>
             As a result, I better understood what it was like to be a remote worker within the Tech Team.
             I got closer to my, now friends from Halifax (We went fishing a couple occasions while I was there). I was able to make some requests for some office supplies and other supplies that helped them out tremendously. Since my trip to Halifax, I had noticed a positive shift in their behaviour and overall engagement.
             As a Team Lead, it’s important to create connections, establish healthy dynamics and promote a positive culture with your team members.
+          </p>
+        </li>
+        <li>
+          <span className='first-sar'>Scaling Issue</span>
+          <span className='sar-titles'>Situation</span>
+          <p>
+            Each electricity utility provider, offer their own tier rate system, which can have a totally different pricing structure as the rest. We use to deal with one utility provider, which meant a few tier systems and calculations. The issue was that we had brought in another utility provider while the tier rate calculations were written during a short deadline, which meant it couldn’t scale.
+          </p>
+          <span className='sar-titles'>Action</span>
+          <p>
+            Considering this task was approaching us quickly and there were more important tasks at hand, I took it upon myself to design and implement a more scalable solution on my own time. To be honest, doing this didn’t feel like work. It felt like a code challenge, which are fun.
+          </p>
+          <span className='sar-titles'>Result</span>
+          <p>
+            Once completed, it was a lot easier to implement new tier rates to our system. We also had more reliable results and it became much easier to debug or make adjustments, considering I was able to remove a lot of code dept in the process.
           </p>
         </li>
         <li>
