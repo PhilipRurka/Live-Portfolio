@@ -151,6 +151,10 @@ const ResumePageWrapper = styled.div({
 
   '.sar-wrapper': {
 
+    '.first-sar': {
+      marginTop: '10px'
+    },
+
     '.sar-titles': {
       fontWeight: '600',
       color: 'gray',
@@ -369,7 +373,7 @@ const SAR = () => (
     <div className='employment-history-content content'>
       <ul>
         <li>
-          <span>Our Remote Developers</span>
+          <span className='first-sar'>Our Remote Developers</span>
           <span className='sar-titles'>Situation:</span>
           <p>
             When I became Team Lead at SimpTek, I felt it was important to get closer to each of my team members and dive deeper into our culture. I knew my team members from the Fredericton office very well, considering I spent my days working beside them, however, there were two developers located in the Halifax office (Different city in a different province) that I only really got to know through meetings and work interactions. My worries were that they may not feel included in our work and/or team culture and they may be missing some elements in their work environment that could better their work efficient/effective, engagement and more importantly, their health. I also wanted to better understand what it was like to be a remote worker and see what improvements can be done to better help them feel included.
