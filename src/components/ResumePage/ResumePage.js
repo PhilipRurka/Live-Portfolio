@@ -150,6 +150,12 @@ const ResumePageWrapper = styled.div({
   },
 
   '.sar-wrapper': {
+
+    '.sar-titles': {
+      fontWeight: '600',
+      color: 'gray',
+      margin: '30px 0 0'
+    },
     
     '&::before': {
       backgroundImage: 'url(./images/success.svg)'
@@ -194,7 +200,7 @@ const ResumePageWrapper = styled.div({
       left: '0',
       backgroundColor: 'gray'
     }
-  }
+  },
 });
 
 const Header = () => (
@@ -363,13 +369,25 @@ const SAR = () => (
     <div className='employment-history-content content'>
       <ul>
         <li>
-          <span>Currently writting copy for this section.</span>
-          {/* <p></p> */}
+          <span>Our Remote Developers</span>
+          <span className='sar-titles'>Situation:</span>
+          <p>
+            When I became Team Lead at SimpTek, I felt it was important to get closer to each of my team members and dive deeper into our culture. I knew my team members from the Fredericton office very well, considering I spent my days working beside them, however, there were two developers located in the Halifax office (Different city in a different province) that I only really got to know through meetings and work interactions. My worries were that they may not feel included in our work and/or team culture and they may be missing some elements in their work environment that could better their work efficient/effective, engagement and more importantly, their health. I also wanted to better understand what it was like to be a remote worker and see what improvements can be done to better help them feel included.
+          </p>
+          <span className='sar-titles'>Action:</span>
+          <p>
+            I decided to move to Halifax for a month (Entirely out of my own pocket). I rented an apartment that was far enough from the office that allowed me to experience a 2 hour daily commute. I wanted, to the best of my abilities, experience their day to day.
+          </p>
+          <span className='sar-titles'>Result:</span>
+          <p>
+            As a result, I better understood what it was like to be a remote worker within the Tech Team.
+            I got closer to my, now friends, from Halifax (We went fishing a couple occasions while I was there). I was able to make some requests for some office supplies and other supplies that helped them out tremendously. Since my trip to Halifax, I had noticed a positive shift in their behaviour and overall engagement.
+            As a Team Lead, it’s important to create connections, establish healthy dynamics and promote a positive culture with your team members.
+          </p>
         </li>
-        {/* <li>
-          <span></span>
-          <p></p>
-        </li> */}
+        <li>
+          <span>Currently writting copy for the next example.</span>
+        </li>
       </ul>
     </div>
   </div>
