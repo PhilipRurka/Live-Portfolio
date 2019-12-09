@@ -238,16 +238,17 @@ const Profile = () => (
       </p>
       <p>
         My proficiencies are the following:
+        <span className='bullet'>React</span>
+        <span className='bullet'>Angular1</span>
+        <span className='bullet'>jQuery</span>
+        <span className='bullet'>Javascript</span>
+        <span className='bullet'>Sass</span>
+        <span className='bullet'>CSS</span>
         <span className='bullet'>HTML</span>
         <span className='bullet'>Pug</span>
-        <span className='bullet'>CSS</span>
-        <span className='bullet'>Sass</span>
-        <span className='bullet'>Javascript</span>
-        <span className='bullet'>Angular1</span>
-        <span className='bullet'>React</span>
       </p>
       <p>
-        I have obtained skills such as:
+        I have obtained skills/experiences such as:
         <span className='bullet'>Building emails</span>
         <span className='bullet'>Building email signatures</span>
         <span className='bullet'>Leading a team</span>
@@ -257,6 +258,54 @@ const Profile = () => (
         <span className='bullet'>Handling cleaning, sanitizing and rebuilding complex data structures from requests</span>
         <span className='bullet'>Handling complex UI revamps/redesigns while users are not affected</span>
         <span className='bullet'>Major work with Graphing libraries</span>
+        <span className='bullet'>Working with&nbsp;
+          <a
+            href="https://stripe.com/en-ca"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Stripe
+          </a>
+        &nbsp;and its API's</span>
+        <span className='bullet'>Working with&nbsp;
+          <a
+            href="https://www.highcharts.com/demo"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Highcharts
+          </a>
+        &nbsp;and its API's</span>
+        <span className='bullet'>Working with&nbsp;
+          <a
+            href="https://www.highcharts.com/stock/demo"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Highstocks
+          </a>
+        &nbsp;and its API</span>
+        <span className='bullet'>Working with&nbsp;
+          <a
+            href="https://apiary.io/"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Apiary
+          </a>
+        </span>
+        <span className='bullet'>Working with&nbsp;
+          <a
+            href="https://getbootstrap.com/"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Bootstrap
+          </a>
+        </span>
+        <span className='bullet'>Working with&nbsp;
+          <a
+            href="https://momentjs.com/"
+            target='_blank'
+            rel='noopener noreferrer' >
+            Moment.js
+          </a>
+        </span>
       </p>
     </div>
   </div>
@@ -407,9 +456,6 @@ const SAR = () => (
           <p>
             Once completed, it was a lot easier to implement new tier rates to our system. We also had more reliable results and it became much easier to debug or make adjustments, considering I was able to remove a lot of code dept in the process.
           </p>
-        </li>
-        <li>
-          <span>Currently writting copy for the next example.</span>
         </li>
       </ul>
     </div>
